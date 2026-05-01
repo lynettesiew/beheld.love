@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Design tokens
+   Change values here and they propagate everywhere.
+   ========================================================================== */
+
+:root {
+  /* Color — brand palette */
+  --ivory: #F8F4ED;
+  --ivory-deep: #F0E9DD;
+  --plum: #4A2840;
+  --plum-light: #6B3D5C;
+  --plum-soft: #8E6B82;
+  --rose: #B08A6E;
+  --rose-light: #D4B59C;
+  --ink: #2A1A24;
+  --muted: #6B5862;
+
+  /* Color — derived (lines, overlays) */
+  --line: rgba(74, 40, 64, 0.12);
+  --line-strong: rgba(74, 40, 64, 0.25);
+  --ivory-translucent: rgba(248, 244, 237, 0.92);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 100px;
+
+  /* Layout */
+  --container-max: 1100px;
+  --narrow-max: 760px;
+  --container-padding: 32px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 100px;
+
+  /* Transition */
+  --transition-fast: 0.2s ease;
+}
