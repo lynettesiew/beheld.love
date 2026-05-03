@@ -42,6 +42,13 @@
   color: var(--ivory);
 }
 
+.hero .eyebrow {
+  letter-spacing: 2px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* --- Hero --- */
 .hero {
   padding: 120px 0 100px;
@@ -148,43 +155,61 @@
   margin-bottom: 20px;
 }
 
-/* --- Four ingredients --- */
-.ingredients {
+/* --- Wedge / step-by-step section --- */
+.wedge-section {
+  background: var(--ivory);
+}
+
+.wedge-steps {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 60px;
 }
 
-.ingredient {
+.wedge-step {
   background: var(--ivory-deep);
-  padding: 40px 36px;
-  border-radius: var(--radius-sm);
+  padding: 36px 32px;
+  border-radius: var(--radius-md);
   position: relative;
+  transition: transform var(--transition-fast);
 }
 
-.ingredient-num {
+.wedge-step:hover {
+  transform: translateY(-3px);
+}
+
+.wedge-step-num {
   font-family: var(--font-serif);
-  font-size: 14px;
-  font-style: italic;
+  font-size: 32px;
+  font-weight: 400;
   color: var(--rose);
-  margin-bottom: 16px;
-  letter-spacing: 1px;
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 18px;
+  letter-spacing: -1px;
 }
 
-.ingredient h3 {
+.wedge-step h3 {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   color: var(--plum);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   line-height: 1.3;
 }
 
-.ingredient p {
+.wedge-step p {
   font-size: 15px;
   color: var(--muted);
   line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .wedge-steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 /* --- Comparison section (dark plum) --- */
@@ -380,45 +405,66 @@
   border-color: var(--rose-light);
 }
 
-/* --- Evening flow --- */
-.flow {
-  max-width: 720px;
-  margin: 50px auto 0;
-}
-
-.flow-step {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 32px;
-  padding: 32px 0;
+/* Compact timeline inside path cards */
+.evening-arc {
+  margin: 0 0 24px;
+  padding: 20px 0;
+  border-top: 0.5px solid var(--line);
   border-bottom: 0.5px solid var(--line);
-  align-items: start;
 }
 
-.flow-step:last-child {
-  border-bottom: none;
+.path-card.featured .evening-arc {
+  border-top-color: rgba(248, 244, 237, 0.15);
+  border-bottom-color: rgba(248, 244, 237, 0.15);
 }
 
-.flow-time {
+.evening-arc-label {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 15px;
+  font-size: 13px;
   color: var(--rose);
-  padding-top: 4px;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
 }
 
-.flow-content h4 {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--plum);
-  margin-bottom: 8px;
+.path-card.featured .evening-arc-label {
+  color: var(--rose-light);
 }
 
-.flow-content p {
-  font-size: 15px;
+.evening-arc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: arc;
+}
+
+.evening-arc-list li {
+  counter-increment: arc;
+  position: relative;
+  padding: 8px 0 8px 28px;
+  font-size: 14px;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.55;
+}
+
+.path-card.featured .evening-arc-list li {
+  color: rgba(248, 244, 237, 0.8);
+}
+
+.evening-arc-list li::before {
+  content: counter(arc);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--rose);
+  font-weight: 400;
+}
+
+.path-card.featured .evening-arc-list li::before {
+  color: var(--rose-light);
 }
 
 /* --- Science section (dark plum) --- */
@@ -629,6 +675,23 @@ details p {
   margin-bottom: 12px;
 }
 
+.footer-links {
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.footer-links a {
+  color: var(--rose);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  border-bottom: 0.5px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  border-bottom-color: var(--rose);
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .final h2 {
@@ -639,7 +702,6 @@ details p {
     padding: 80px 0 60px;
   }
 
-  .ingredients,
   .paths-grid,
   .stats-grid,
   .fit-grid {
@@ -661,10 +723,5 @@ details p {
   .compare-table th,
   .compare-table td {
     padding: 12px 8px;
-  }
-
-  .flow-step {
-    grid-template-columns: 1fr;
-    gap: 8px;
   }
 }
