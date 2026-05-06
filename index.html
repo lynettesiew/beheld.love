@@ -1,348 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BeHeld &mdash; Designed for closeness, not contacts</title>
-  <meta name="description" content="A small-room gathering in NYC built on what the science actually says creates real connection. Not a dating app. Not speed dating. Designed for closeness." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="BeHeld — Designed for closeness, not contacts" />
-  <meta property="og:description" content="A small-room gathering in NYC built on what the science actually says creates real connection." />
-  <meta property="og:type" content="website" />
-
-  <!-- Fonts -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BeHeld — For people done with superficial relationships</title>
+  <meta name="description" content="BeHeld matches you by values, life goals, and where you are right now. Curated gatherings for NYC professionals in their 30s & 40s."/>
+  <meta property="og:title" content="BeHeld — Find your people."/>
+  <meta property="og:description" content="Matched by values, not vibes. NYC gatherings for 30s & 40s."/>
+  <meta property="og:type" content="website"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css"/>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 
-  <!-- Nav -->
-  <nav class="nav">
-    <div class="container">
-      <span class="logo">BeHeld</span>
-      <a href="https://luma.com/2h9ctlkt" class="nav-cta">RSVP</a>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="logo">Be<em>held</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="different.html">How We're Different</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="events.html" class="nav-cta">RSVP</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="different.html">How We're Different</a>
+  <a href="events.html">Events</a>
+  <a href="#faq">FAQ</a>
+  <a href="events.html" style="color:var(--rose)">RSVP →</a>
+</div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner narrow">
-      <div class="eyebrow">Small rooms in NYC &middot; Built on the science of connection</div>
-      <h1>You have a few people who <em>really know you</em>. You want a few more.</h1>
-      <p class="hero-lede">You've done everything right &mdash; the apps, the events, the clubs. You're still a little lonely.</p>
-      <div class="cta-row">
-        <a href="https://luma.com/2h9ctlkt" class="btn btn-primary">RSVP for the next evening</a>
-        <a href="#how" class="btn btn-secondary">How it works</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="eyebrow" style="animation:fadeUp 0.7s 0.1s ease both;opacity:0;">NYC · 30s &amp; 40s · Curated gatherings</span>
+    <h1 style="animation:fadeUp 0.7s 0.18s ease both;opacity:0;">Loneliness is<br/>an <em>adult problem.</em></h1>
+    <p class="hero-sub" style="animation:fadeUp 0.7s 0.26s ease both;opacity:0;">
+      Most people just don't talk about it. We built something for it.<br><br>
+      Your people might be a friend, a partner, a collaborator — or something that doesn't fit a category yet. BeHeld helps you find them.
+    </p>
+    <div class="hero-actions" style="animation:fadeUp 0.7s 0.34s ease both;opacity:0;">
+      <a href="events.html" class="btn btn-primary">RSVP for the next evening</a>
+      <a href="different.html" class="btn btn-secondary">How we're different</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- HERO IMAGE: 900×1000px portrait, warm intimate dinner -->
+    <!-- <img src="assets/hero.jpg" alt="BeHeld gathering"/> -->
+    <div class="hero-ph">
+      <span class="ph-label">Hero photo</span>
+      <span class="ph-size">900 × 1000 px</span>
+      <span class="ph-label" style="margin-top:4px;">Warm intimate dinner · portrait</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT IS -->
+<section class="section reveal">
+  <div class="container">
+    <div class="what-grid">
+      <div>
+        <span class="eyebrow" style="display:block;margin-bottom:18px;">What BeHeld is</span>
+        <h2 style="text-align:left;">Most events leave connection to chance.<br/><em>BeHeld doesn't.</em></h2>
       </div>
-      <p class="hero-meta">16&ndash;24 people &middot; Curated rooms &middot; NYC</p>
-    </div>
-  </section>
-
-<!-- The Wedge / How it's different -->
-  <section class="section wedge-section">
-    <div class="container">
-      <div class="section-eyebrow">The wedge</div>
-      <h2>Designed for continuity, <em>not superficiality</em>.</h2>
-      <p class="section-lede">We put you in the same room before matches happen. Activities are designed to peel back layers, letting people witness your depth, how you show up, and your uniqueness.</p>
-
-      <div class="wedge-steps">
-        <div class="wedge-step">
-          <div class="wedge-step-num">01</div>
-          <h3>You receive a preview of who's coming</h3>
-          <p>A snapshot of who's coming &mdash; their values, and one interesting fact about them. No photos or job titles to prevent pre-vetting.</p>
+      <div class="what-right">
+        <p style="font-size:16px;">We match you by values, life goals, and where you are right now — then put you in activities that reveal character in ways that usually take months.</p>
+        <p>We also teach you something most events don't: how to truly show up for someone. And how to let yourself be known.</p>
+        <div class="diff-rows">
+          <div class="diff-row"><div class="diff-dot"></div><div class="diff-text">Not matched by looks — matched by what actually moves you</div></div>
+          <div class="diff-row"><div class="diff-dot"></div><div class="diff-text">Activities that open people faster than small talk ever could</div></div>
+          <div class="diff-row"><div class="diff-dot"></div><div class="diff-text">Two matches after — one who shares your values, one who expands them</div></div>
         </div>
-        <div class="wedge-step">
-          <div class="wedge-step-num">02</div>
-          <h3>You meet them in person</h3>
-          <p>An intimate gathering of 16&ndash;24 people, hand-picked. You'll be paired in twos or triads to go past the surface and work on something together. No awkward talks or dry conversations.</p>
-        </div>
-        <div class="wedge-step">
-          <div class="wedge-step-num">03</div>
-          <h3>You decide who you'd like to know more</h3>
-          <p>Afterward, tell us who you'd like to know more - people you've connected with, and people you didn't get to but wanted to. If they say yes back, we share the match.</p> 
-<div class="step-highlight">Every choice you make helps us get better at finding your people.</div>
-        </div>
-        <div class="wedge-step">
-          <div class="wedge-step-num">04</div>
-          <h3>We invite you into what comes next</h3>
-          <p>Another evening together in the next curated room. Or The Circle &mdash; a six-week program for matches who want structure and depth, fast.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Comparison -->
-  <section class="section comparison-section">
-    <div class="container">
-      <div class="section-eyebrow">Where we sit</div>
-      <h2>What the others <em>can't deliver</em></h2>
-      <p class="section-lede">Only one is built for what comes after the room.</p>
-
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Dating apps</th>
-            <th>Friendship apps</th>
-            <th>Dinner clubs</th>
-            <th>Speed dating</th>
-            <th class="beheld-header">BeHeld</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Meet in person</td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td class="beheld-col"><span class="check">&#10003;</span></td>
-            <td class="beheld-col"><span class="check">&#10003;</span></td>
-            <td class="beheld-col"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Curated for shared values</td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td class="beheld-col"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Preview the room before you arrive</td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td class="beheld-col"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Moments where you feel seen and understood</td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td class="beheld-col"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Continuity after the first meeting</td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td><span class="x-mark">&mdash;</span></td>
-            <td class="beheld-col"><span class="check">&#10003;</span></td>
-          </tr>
-          <tr>
-            <td>Optimizing for</td>
-            <td>Selection</td>
-            <td>Matches</td>
-            <td>One nice night</td>
-            <td>Efficiency</td>
-            <td class="beheld-col">Closeness</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
- <!-- Two paths -->
-  <section class="section paths-section" id="how">
-    <div class="container">
-      <div class="section-eyebrow">How to join</div>
-      <h2>Start with one evening, <em>then decide.</em></h2>
-      <p class="section-lede">Single Evenings are the entry. The Circle is for matches who want structure and depth, fast.</p>
- 
-      <div class="paths-grid">
-        <div class="path-card">
-          <span class="path-tag path-tag-light">Step one</span>
-          <h3>The Single Evening</h3>
-          <p class="path-desc">A curated room of 16&ndash;24 people, hand-picked for shared values. You see who's coming before you arrive.</p>
- 
-          <div class="evening-arc">
-            <div class="evening-arc-label">Sample Evening Plan</div>
-            <ol class="evening-arc-list">
-              <li>Arrival &mdash; no name tags</li>
-              <li>Paired prompts that surface what you actually value</li>
-              <li>A shared activity in small teams</li>
-              <li>One structured being-seen moment</li>
-              <li>Closing &mdash; you find who you want to keep talking to</li>
-            </ol>
-          </div>
- 
-          <div class="path-detail">
-            <span class="label">Investment</span>
-            <span class="value">$25&ndash;$45</span>
-          </div>
-          <div class="path-detail">
-            <span class="label">Commitment</span>
-            <span class="value">One evening</span>
-          </div>
-          <div class="path-detail path-detail-stacked">
-            <span class="label">What you leave with</span>
-            <span class="value">A list of people whose depth you've witnessed and who've witnessed yours.</span>
-          </div>
-          <a href="https://luma.com/2h9ctlkt" class="btn btn-primary">RSVP on Luma</a>
-        </div>
- 
-        <div class="path-card featured">
-          <span class="path-tag path-tag-rose">For matches who want depth</span>
-          <h3>The Circle</h3>
-          <p class="path-desc">A curated six-week program for those who want structure in moving toward closeness at the right pace. Built for two or more who prefer us to do the planning. A great way for us to learn more about who your people are.</p>
- 
-
-          <div class="evening-arc">
-            <div class="evening-arc-label">The arc of six weeks</div>
-            <ol class="evening-arc-list">
-              <li>Weeks 1&ndash;2 &mdash; activities that surface how you each show up</li>
-              <li>Weeks 3&ndash;4 &mdash; situations designed to reveal character &mdash; how you show up in different settings</li>
-              <li>Weeks 5&ndash;6 &mdash; reflection on what it means to show up, be seen and be a better partner/friend/collaborator.</li>
-            </ol>
-            <div class="evening-arc-note">
-              We check-in weekly & provide clear guidelines on what to expect. We encourage minimal texting between sessions &mdash; logistics only &mdash; to let the connection deepen at the right pace.
-            </div>
-          </div>
-          <div class="path-detail">
-            <span class="label">Investment</span>
-            <span class="value">$350&ndash;$450</span>
-          </div>
-          <div class="path-detail">
-            <span class="label">Commitment</span>
-            <span class="value">6 sessions</span>
-          </div>
-          <div class="path-detail">
-            <span class="label">Minimum to start</span>
-            <span class="value">2 participants</span>
-          </div>
-          <div class="path-detail path-detail-stacked">
-            <span class="label">What you leave with</span>
-            <span class="value">A relationship that's gone past introductions &mdash; and a clearer sense of who your people are.</span>
-          </div>
-          <a href="https://tally.so/r/MedLGX" class="btn btn-primary">Apply to The Circle</a>
+        <div class="what-links">
+          <a href="events.html">✦ The Taster — one evening</a>
+          <a href="different.html" class="muted">How we're different →</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Science -->
-  <section class="section science-section">
-    <div class="container">
-      <div class="section-eyebrow">The research</div>
-      <h2>This is <em>science-backed</em></h2>
-      <p class="section-lede">Every design choice traces to a peer-reviewed finding.</p>
- 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-label-top">Why curation matters</div>
-          <div class="stat-finding">Congruence in values and beliefs is among the most consistently identified protective factors for long-term relationship stability.</div>
-          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6702121/" class="stat-citation" target="_blank" rel="noopener">Protective factors of marital stability: a systematic review (2019)</a>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label-top">Why six weeks</div>
-          <div class="stat-finding">Judgments of who someone really is become more accurate the more different situations they're observed in.</div>
-          <a href="https://journals.sagepub.com/doi/10.1177/0963721412445309" class="stat-citation" target="_blank" rel="noopener">Funder, Accurate Personality Judgment (2012)</a>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label-top">Why we build for continuity</div>
-          <div class="stat-finding">Closeness needs repeated, structured time together — what makes people feel responded to, more comfortable, and actually known.</div>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/21381850/" class="stat-citation" target="_blank" rel="noopener">Reis et al., Familiarity Promotes Attraction in Live Interaction (2011)</a>
-        </div>
-      </div>
- 
-      <p class="citations">Drawn from research on shared values, repeated exposure, perceived partner responsiveness,<br/>and the multi-context basis of accurate person perception.</p>
+<!-- HOW IT WORKS -->
+<section class="section reveal" style="background:var(--ivory-deep);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:44px;">
+      <span class="section-eyebrow">How it works</span>
+      <h2>For people done with<br/><em>superficial relationships.</em></h2>
     </div>
-  </section>
-
-  <!-- Who it's for -->
-  <section class="section">
-    <div class="container">
-      <div class="section-eyebrow">A real fit</div>
-      <h2>Who this is, and <em>isn't</em> for</h2>
-      <p class="section-lede">Every room is intentional</p>
-
-      <div class="fit-grid">
-        <div class="fit-card fit-yes">
-          <h3>It's for you if</h3>
-          <p>You've outgrown small talk. You'd rather have one or two real relationships than ten thin ones. You're willing to be a little more honest than usual for an evening.</p>
-        </div>
-        <div class="fit-card fit-no">
-          <h3>It's not for you if</h3>
-          <p>You want a packed room or a numbers game. You'd rather optimize for volume than depth. You're not willing to have one slightly vulnerable conversation.</p>
-        </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Before you arrive</div>
+        <p style="font-size:13px;">Complete a short application. We use your answers to pair you intentionally — some pairings share your values, some challenge them. You'll experience both.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">At the event</div>
+        <p style="font-size:13px;">Get settled, order food or drinks. Two partners, two 30-minute creative activities. A short reflection after each. Stay and mingle after if you'd like.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">After the event</div>
+        <p style="font-size:13px;">Within 24 hours: your next invitation and next pairing. Want to see someone from tonight again? Tell us. If it's mutual, we'll make it happen.</p>
       </div>
     </div>
-  </section>
+    <div class="steps-footer">
+      <p>Expect to meet fewer people than at a typical event. Expect to know them better than months of apps. Expect to come back.</p>
+      <a href="events.html" class="btn btn-light">See upcoming events →</a>
+    </div>
+  </div>
+</section>
 
-  <!-- FAQ -->
-  <section class="section faq-section">
-    <div class="narrow">
-      <div class="section-eyebrow">Common questions</div>
-      <h2>What people <em>usually ask</em></h2>
-
-      <div class="faq-list">
-        <details>
-          <summary>How does the matching work?</summary>
-          <p>After a Single Evening, you tell us who you'd like to know more. If they say yes back, it's a match. We share their profile with you and yours with them, and invite you both into what comes next &mdash; another evening together in the next curated room, or The Circle.</p>
-        </details>
-        <details>
-          <summary>How do you keep the room safe?</summary>
-          <p>We curate the room. We screen applications. We're present at every event. Every participant agrees to <a href="code.html" style="color: var(--rose); text-decoration: underline;">The BeHeld Code</a> before joining &mdash; a short agreement about how we treat each other in the room and after. We take all reports of inappropriate behavior seriously, and we remove anyone whose behavior threatens the safety or trust of the room. The Circle has explicit exits at any session &mdash; both parties can stop, no questions asked.</p>
-        </details>
-        <details>
-          <summary>What if my match doesn't opt into The Circle?</summary>
-          <p>Both of you have to opt in for The Circle to start. If only you opt in, you can choose to be re-paired with someone else who's opted in &mdash; or join an existing pod of two or more. Minimum two participants to begin.</p>
-        </details>
-        <details>
-          <summary>Is this a dating event or a friendship event?</summary>
-          <p>Both, and neither. We don't pre-sort by what you're looking for &mdash; we sort by values and openness, and let the connection take whatever shape it's going to take. Some matches become romantic. Some become close friendships. Some become creative collaborations. The format doesn't presume.</p>
-        </details>
-        <details>
-          <summary>Why do I have to apply?</summary>
-          <p>Curation does real work. Rooms with rough value alignment produce dramatically more closeness than randomly assembled ones. We keep groups small and selected so the format can do what it's designed to do.</p>
-        </details>
-        <details>
-          <summary>Can I join The Circle without coming to a single evening first?</summary>
-          <p>Yes. Some people read this and know they want the deeper version. Apply directly via the form &mdash; we'll be in touch about the next group.</p>
-        </details>
-        <details>
-          <summary>What if I miss a session in The Circle?</summary>
-          <p>One miss is fine. Two starts to break the arc for you and the others. We'll talk through it before you commit so you go in with eyes open.</p>
-        </details>
-        <details>
-          <summary>How is this different from group therapy or a workshop?</summary>
-          <p>We're not facilitating healing &mdash; we're designing the conditions where genuine connection becomes likely. There's no curriculum, no homework, and no one's working through anything in the room. It's structured the way a great dinner party is structured, just with more intentional design beneath it.</p>
-        </details>
+<!-- NEXT EVENT -->
+<section class="section reveal">
+  <div class="container">
+    <div class="event-teaser">
+      <div class="event-teaser-img">
+        <!-- EVENT IMAGE: 700×500px warm dinner/gathering vibe -->
+        <!-- <img src="assets/event-taster.jpg" alt="The Taster"/> -->
+        <div class="hero-ph" style="min-height:380px;">
+          <span class="ph-label">Event photo</span>
+          <span class="ph-size">700 × 500 px</span>
+        </div>
+        <div class="event-badge">✦ The Taster</div>
+      </div>
+      <div class="event-teaser-body">
+        <span class="eyebrow" style="display:block;">Next event</span>
+        <h2>30s &amp; 40s:<br/><em>Find Your People.</em></h2>
+        <p>A single evening with 20 curated people. Values-surfacing activities. One moment where you actually feel seen.</p>
+        <div class="meta-2col">
+          <div class="meta-box"><div class="meta-label">Date</div><div class="meta-val">[Date TBD]</div></div>
+          <div class="meta-box"><div class="meta-label">Location</div><div class="meta-val">NYC · LES</div></div>
+        </div>
+        <div class="teaser-row">
+          <a href="events.html" class="btn btn-primary">RSVP · $35</a>
+          <span style="font-size:12px;color:var(--muted);font-style:italic;">Limited to 20 people</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Final CTA -->
-  <section class="final">
-    <div class="narrow">
-      <div class="section-eyebrow">One last thing</div>
-      <h2>Come once. <em>See how it feels.</em></h2>
-      <p class="hero-lede">If it doesn't land, you've spent one evening. If it does, it might be the most magical event of your year.</p>
-      <a href="https://luma.com/2h9ctlkt" class="btn btn-primary">RSVP for the next evening</a>
-      <p class="footnote">For The Circle, <a href="https://tally.so/r/MedLGX">apply here</a>. We say no when it isn't a fit.</p>
+<!-- TASTER 2 TEASER -->
+<div class="next-teaser reveal">
+  <span class="eyebrow">Coming up · Taster 2</span>
+  <h2><em>Two people. One kitchen.</em><br/>45 minutes.</h2>
+  <p>No recipe. Just a prompt. What you make — and how you make it — says everything.</p>
+  <a href="#" class="teaser-link">Notify me when it's live →</a>
+</div>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <span class="eyebrow" style="display:block;margin-bottom:14px;">Common questions</span>
+      <h2>What people<br/><em>usually ask.</em></h2>
     </div>
-  </section>
+    <div class="faq-layout reveal">
+      <div class="faq-sidebar">
+        <div class="faq-sidebar-title">Jump to</div>
+        <div class="faq-nav">
+          <a href="#faq-event">The event</a>
+          <a href="#faq-matching">Matching</a>
+          <a href="#faq-safety">Safety</a>
+          <a href="#faq-logistics">Logistics</a>
+        </div>
+      </div>
+      <div>
+        <span id="faq-event" class="faq-group">The event</span>
+        <div class="faq-list">
+          <details open>
+            <summary>What actually happens at a BeHeld event?</summary>
+            <div class="faq-answer"><p>You arrive, get settled, and order food or drinks. You'll meet your first partner and do a 30-minute creative activity together — designed to surface more than small talk ever could. A 5-minute reflection follows. Then a second partner, a second activity, another reflection. After both activities you're welcome to stay and mingle.</p></div>
+          </details>
+          <details>
+            <summary>What kind of activities are these?</summary>
+            <div class="faq-answer"><p>Creative, low-pressure, and different every time — drawing, writing, building something. The first Taster uses a dinner-based prompt. Taster 2 is a cooking challenge: two people, one kitchen, 45 minutes, no recipe. What you make and how you make it says more than an hour of conversation.</p></div>
+          </details>
+          <details>
+            <summary>Is this a dating event?</summary>
+            <div class="faq-answer"><p>Not exactly — and not not. We don't pre-sort by what you're looking for. Your people might be a best friend, a partner, a collaborator, or something without a label yet. BeHeld is built for all of them.</p></div>
+          </details>
+        </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="logo">BeHeld</div>
-      <p>Designed for closeness, not contacts.</p>
-      <p class="footer-links">
-        <a href="code.html">The BeHeld Code</a>
-      </p>
+        <span id="faq-matching" class="faq-group">Matching</span>
+        <div class="faq-list">
+          <details>
+            <summary>How does the matching work?</summary>
+            <div class="faq-answer"><p>Before the event you complete a short application — three questions about your values, life goals, and where you are right now. We pair you intentionally at the event. After the event, your next invitation includes your next pairing informed by what you shared.</p></div>
+          </details>
+          <details>
+            <summary>What if I want to see someone again?</summary>
+            <div class="faq-answer"><p>Tell us after the event. If it's mutual, we'll share details and invite you both to the next event. You don't have to do anything in the room — just let us know afterward.</p></div>
+          </details>
+          <details>
+            <summary>Why do some pairings have different values?</summary>
+            <div class="faq-answer"><p>Because the most interesting connections often come from someone whose world is organised differently than yours. We deliberately include one pairing that challenges your values alongside one that shares them. The difference isn't a mismatch — it's a doorway.</p></div>
+          </details>
+        </div>
+
+        <span id="faq-safety" class="faq-group">Safety</span>
+        <div class="faq-list">
+          <details>
+            <summary>How do you keep the room safe?</summary>
+            <div class="faq-answer"><p>We screen all applications. We're present at every event. Every participant agrees to The BeHeld Code before joining — a short agreement about how we treat each other in the room and after. We take all reports seriously and remove anyone whose behavior threatens the safety or trust of the room.</p></div>
+          </details>
+          <details>
+            <summary>What if I feel uncomfortable?</summary>
+            <div class="faq-answer"><p>Tell us immediately. We're present and paying attention. You can leave at any point — no explanation needed. Being a little uncomfortable in the direction of growth is what we're designing for. Being uncomfortable because of someone else's behavior is not.</p></div>
+          </details>
+        </div>
+
+        <span id="faq-logistics" class="faq-group">Logistics</span>
+        <div class="faq-list">
+          <details>
+            <summary>How much does it cost?</summary>
+            <div class="faq-answer"><p>The Taster is $35. This covers your seat and values matching. Food and drinks are ordered separately at the venue.</p></div>
+          </details>
+          <details>
+            <summary>Why do I have to apply?</summary>
+            <div class="faq-answer"><p>Curation does real work. Rooms with value alignment produce dramatically more closeness than randomly assembled ones. We keep groups small and selected — 20 people maximum.</p></div>
+          </details>
+          <details>
+            <summary>Who typically comes?</summary>
+            <div class="faq-answer"><p>Professionals in their 30s and 40s in New York City — software engineers, lawyers, founders, finance professionals, designers, operators. People who are excellent at performing themselves and ready to try something different.</p></div>
+          </details>
+        </div>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- JS -->
-  <script src="js/main.js"></script>
+<!-- CTA -->
+<div class="cta-band reveal">
+  <div>
+    <h2>Ready to be<br/><em>in the room?</em></h2>
+    <p>Come once. See how it feels.</p>
+  </div>
+  <div class="cta-band-right">
+    <a href="events.html" class="btn btn-primary">RSVP · $35 →</a>
+    <div class="cta-note">Limited to 20 people per event</div>
+  </div>
+</div>
+
+<footer class="footer">
+  <a href="index.html" class="logo">Be<em>held</em></a>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="different.html">How We're Different</a>
+    <a href="events.html">Events</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="footer-note">@beheldlove</div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
