@@ -21,9 +21,10 @@
 .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 .nav-links a {
   font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--nav-text); transition: color var(--transition-fast);
+  color: rgba(247,243,238,0.75) !important;
+  transition: color var(--transition-fast);
 }
-.nav-links a:hover, .nav-links a.active { color: var(--nav-active); }
+.nav-links a:hover, .nav-links a.active { color: #F7F3EE !important; }
 .nav-cta {
   font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
   font-weight: 500; color: var(--ivory); background: var(--rose);
