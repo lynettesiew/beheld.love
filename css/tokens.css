@@ -12,8 +12,11 @@
   --plum-soft: #8E6B82;
   --rose: #B08A6E;
   --rose-light: #D4B59C;
+  --rose-pale: #E8D9C8;
   --ink: #2A1A24;
+  --ink-soft: #4A3A44;
   --muted: #6B5862;
+  --nav-bg: #1C1410;
 
   /* Color — derived (lines, overlays) */
   --line: rgba(74, 40, 64, 0.12);

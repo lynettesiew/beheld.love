@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membership — BeHeld</title>
+  <meta name="description" content="BeHeld membership launches August 2026. Two events included monthly, priority signup, matching that remembers you."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css"/><link rel="stylesheet" href="css/base.css"/><link rel="stylesheet" href="css/styles.css"/>
+  <style>
+    /* Membership savings treatment on the price line */
+    .tier-event-price .tier-was {
+      text-decoration: line-through;
+      color: var(--muted);
+      opacity: 0.6;
+      margin-right: 6px;
+    }
+    .tier-event-price .tier-save {
+      color: var(--rose);
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="logo">Be<em>held</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+    <li><a href="different.html">How We're Different</a></li><li><a href="events.html">Events</a></li>
+    <li><a href="membership.html" class="active">Membership</a></li>
+    </ul>
+  <a href="events.html" class="nav-cta">RSVP</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mobile-nav">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="different.html">How We're Different</a>
+  <a href="events.html">Events</a><a href="membership.html">Membership</a><a href="events.html" style="color:var(--rose)">RSVP →</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow">Membership · Launching August 2026</span>
+    <h1>Community doesn't form in one night.<br/><em>It forms in the showing up.</em></h1>
+    <p>BeHeld is moving from one-off evenings to a recurring practice — memberships launch in August, with pay-per-event continuing alongside.</p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="narrow reveal">
+    <p style="font-size:16px;line-height:1.8;text-align:center;color:var(--ink);">
+      Three ways to belong — one casual, one committed to the practice, one for depth.
+    </p>
+  </div>
+</section>
+
+<!-- TIER CARDS -->
+<section class="section reveal" style="background:var(--ivory-deep);padding-top:48px;padding-bottom:64px;">
+  <div class="container">
+    <div class="tier-grid">
+      <div class="tier-card">
+        <span class="tier-label">Free Tier</span>
+        <div class="tier-price">$0<span class="tier-period"> / month</span></div>
+        <div class="tier-event-price">$55 per event</div>
+        <p class="tier-tagline">Come occasionally, no commitment.</p>
+        <ul class="tier-features">
+          <li>Attend any open event at $55/ticket</li>
+          <li>Full event experience: matching, activities, intros</li>
+          <li>General community access</li>
+        </ul>
+        <a href="events.html" class="btn btn-secondary tier-cta">RSVP for an event</a>
+      </div>
+
+      <div class="tier-card tier-featured">
+        <span class="tier-badge">Most popular</span>
+        <span class="tier-label">Membership</span>
+        <div class="tier-price">$69<span class="tier-period"> / month</span></div>
+        <div class="tier-event-price"><span class="tier-was">$110</span> <span class="tier-save">$34.50 / event · save 37%</span></div>
+        <p class="tier-tagline">Build an ongoing practice.</p>
+        <ul class="tier-features">
+          <li><strong>Two events per month included</strong></li>
+          <li>Priority signup before events open publicly</li>
+          <li>We remember your matches across events</li>
+          <li>Member-only cohort channels</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-primary tier-cta">Join the waitlist</a>
+      </div>
+
+      <div class="tier-card">
+        <span class="tier-label">Premium</span>
+        <div class="tier-price">$129<span class="tier-period"> / month</span></div>
+        <div class="tier-event-price">2 events + 1 facilitator-led</div>
+        <p class="tier-tagline">For depth.</p>
+        <ul class="tier-features">
+          <li>Everything in Membership</li>
+          <li>1 facilitator-led event included monthly</li>
+          <li>1:1 curated follow-up experiences</li>
+          <li>Bring-a-friend privilege</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-secondary tier-cta">Join the waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section reveal">
+  <div class="container">
+    <div style="max-width:560px;margin:0 auto 40px;text-align:center;">
+      <span class="section-eyebrow">Side by side</span>
+      <h2>What's included in <em>each tier.</em></h2>
+    </div>
+    <div class="tier-table-wrap">
+      <table class="tier-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Free</th>
+            <th class="tier-th-featured">Membership</th>
+            <th>Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tier-section-row"><td colspan="4">At the event</td></tr>
+          <tr>
+            <td>Attend events</td>
+            <td><span class="tier-ck">✓</span></td>
+            <td class="tier-td-featured"><span class="tier-ck">✓</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+          <tr>
+            <td>Curated activities + small group format</td>
+            <td><span class="tier-ck">✓</span></td>
+            <td class="tier-td-featured"><span class="tier-ck">✓</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+          <tr>
+            <td>Pre-event snapshot of your table</td>
+            <td><span class="tier-ck">✓</span></td>
+            <td class="tier-td-featured"><span class="tier-ck">✓</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+          <tr>
+            <td>Choose Your 3 + intro if matched</td>
+            <td><span class="tier-ck">✓</span></td>
+            <td class="tier-td-featured"><span class="tier-ck">✓</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+
+          <tr class="tier-section-row"><td colspan="4">Between events (continuity)</td></tr>
+          <tr>
+            <td>Two events / month included</td>
+            <td><span class="tier-dash">—</span></td>
+            <td class="tier-td-featured"><span class="tier-ck">✓</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+          <tr>
+            <td>Priority event signup</td>
+            <td><span class="tier-dash">—</span></td>
+            <td class="tier-td-featured"><span class="tier-ck">✓</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+          <tr>
+            <td>Matching that remembers you across events</td>
+            <td><span class="tier-dash">—</span></td>
+            <td class="tier-td-featured"><span class="tier-ck">✓</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+          <tr>
+            <td>Member-only cohort channels</td>
+            <td><span class="tier-dash">—</span></td>
+            <td class="tier-td-featured"><span class="tier-ck">✓</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+
+          <tr class="tier-section-row"><td colspan="4">Depth</td></tr>
+          <tr>
+            <td>1 facilitator-led event included monthly</td>
+            <td><span class="tier-dash">—</span></td>
+            <td class="tier-td-featured"><span class="tier-dash">—</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+          <tr>
+            <td>1:1 curated follow-up experiences</td>
+            <td><span class="tier-dash">—</span></td>
+            <td class="tier-td-featured"><span class="tier-dash">—</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+          <tr>
+            <td>Bring-a-friend privilege</td>
+            <td><span class="tier-dash">—</span></td>
+            <td class="tier-td-featured"><span class="tier-dash">—</span></td>
+            <td><span class="tier-ck">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="reveal" id="waitlist" style="background:var(--plum);color:var(--ivory);padding:80px var(--container-padding);">
+  <div class="narrow" style="padding:0;">
+    <span class="eyebrow" style="color:var(--rose-light);display:block;margin-bottom:14px;text-align:center;">Membership · Launching August 2026</span>
+    <h2 style="color:var(--ivory);text-align:center;margin-bottom:18px;">Be among the <em>first members.</em></h2>
+    <p style="text-align:center;color:rgba(247,243,238,0.65);max-width:520px;margin:0 auto 36px;">
+      Join the waitlist for first access and founding-member pricing when Membership and Premium launch.
+    </p>
+    <div class="waitlist-cta-wrap">
+      <a href="https://tally.so/r/MedLGX" class="btn btn-primary waitlist-btn" target="_blank" rel="noopener">Join the waitlist →</a>
+      <p class="waitlist-note">Takes 2 minutes, with emails only when there's something real to share.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP FAQ -->
+<section class="section reveal">
+  <div class="narrow">
+    <div style="text-align:center;margin-bottom:36px;">
+      <span class="section-eyebrow">Membership questions</span>
+      <h2>The things people<br/><em>ask first.</em></h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>When does Membership actually launch?</summary>
+        <div class="faq-answer"><p>August 2026 — we're using the next few months to run pilot events and refine the recurring experience, with waitlist sign-ups getting first access and founding-member pricing.</p></div>
+      </details>
+      <details>
+        <summary>Can I still come if I'm not a member?</summary>
+        <div class="faq-answer"><p>Yes — Free Tier means no commitment, just $55/ticket for the full event experience. Membership unlocks continuity across events, priority signup, and member-only channels.</p></div>
+      </details>
+      <details>
+        <summary>What does "matching that remembers you" mean?</summary>
+        <div class="faq-answer"><p>At the end of each event you pick people you'd want to see again, and if they pick you back we re-invite both of you to future events — while the ones you didn't click with quietly aren't seated with you again.</p></div>
+      </details>
+      <details>
+        <summary>What's a facilitator-led event?</summary>
+        <div class="faq-answer"><p>A deeper, smaller version of BeHeld with a trained facilitator running the room — reserved for Premium members, available less frequently than standard events.</p></div>
+      </details>
+      <details>
+        <summary>Can I pause or cancel membership?</summary>
+        <div class="faq-answer"><p>Yes — membership is month-to-month, pause or cancel anytime, because you decide the pace.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band reveal">
+  <div>
+    <h2>Want to try BeHeld first?<br/><em>Come to an event.</em></h2>
+    <p>The best way to know if Membership is for you is to be in the room once.</p>
+  </div>
+  <div class="cta-band-right">
+    <a href="events.html" class="btn btn-primary">See upcoming events →</a>
+    <div class="cta-note">$55 · Limited to 12 people</div>
+  </div>
+</div>
+
+<footer class="footer">
+  <a href="index.html" class="logo">Be<em>held</em></a>
+  <div class="footer-links"><a href="about.html">About</a><a href="different.html">How We're Different</a><a href="events.html">Events</a><a href="membership.html">Membership</a></div>
+  <div class="footer-note">@beheldlove</div>
+</footer>
+<script src="js/main.js"></script>
+</body></html>
