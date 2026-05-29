@@ -242,24 +242,92 @@ details[open] summary::after { content: "−"; }
 .faq-answer p + p { margin-top: 10px; }
 
 /* ── ABOUT PAGE (single-column) ── */
-.about-layout { display: grid; grid-template-columns: 1fr; gap: 48px; max-width: 760px; }
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 1.5fr);
+  gap: 80px;
+  align-items: start;
+}
+.about-intro {
+  position: sticky;
+  top: 100px;
+}
 .about-intro h2 { font-size: clamp(30px, 3.6vw, 46px); }
 .about-story { display: flex; flex-direction: column; gap: 24px; }
 .about-story p { font-size: 18px; line-height: 1.85; color: var(--ink-soft); }
-.pullquote { border-left: 2px solid var(--rose); padding: 12px 0 12px 28px; margin: 8px 0; }
+
+.pullquote {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 32px 0;
+  margin: 24px 0;
+  text-align: center;
+}
 .pullquote p {
-  font-family: var(--font-serif); font-size: 28px; font-weight: 300;
-  font-style: italic; line-height: 1.35; color: var(--plum);
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--plum);
+  margin: 0;
 }
-.founder-card-standalone {
-  padding: 32px 32px; background: var(--ivory-deep); border: 1px solid var(--line);
-  margin-top: 24px;
+.pullquote em { color: var(--rose); font-style: italic; }
+
+/* Motif under the sticky rail */
+.about-motif {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
 }
-.founder-name {
-  font-family: var(--font-serif); font-size: 24px; color: var(--plum);
-  margin: 10px 0 14px; font-weight: 400;
+.about-motif-caption {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--plum);
+  margin: 0;
+  max-width: 280px;
 }
-@media (max-width: 768px) {
+
+/* Founder note */
+.founder-note {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.founder-note-body {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--plum);
+  margin: 0 0 20px 0;
+}
+.founder-signature {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--plum);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-intro {
+    position: static;
+  }
+  .about-motif {
+    margin-top: 28px;
+  }
+  .about-motif svg {
+    width: 160px;
+    height: auto;
+  }
   .about-story p { font-size: 16px; }
   .pullquote p { font-size: 22px; }
 }
