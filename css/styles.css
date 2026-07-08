@@ -163,20 +163,13 @@
   position: relative; min-height: 92vh; padding-top: 64px;
   display: flex; align-items: center; overflow: hidden;
 }
-.hero-media { position: absolute; inset: 0; z-index: 0; }
+.hero-media { position: absolute; inset: 0; z-index: 0; background: var(--ivy-deep); }
 .hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; }
-/* Placeholder collage — swap for real footage (see comment in index.html) */
-.hero-placeholder { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(2,1fr); }
-.hero-placeholder div {
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(255,255,255,0.5);
-}
-.hp1 { background: #4A5A3F; } .hp2 { background: #B06A4A; } .hp3 { background: #7D8A52; } .hp4 { background: #C99A7A; }
-.hp5 { background: #8A5A3F; } .hp6 { background: #5A6A48; } .hp7 { background: #CF9B3A; } .hp8 { background: #9A6A58; }
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(30,38,26,0.55) 0%, rgba(30,38,26,0.38) 45%, rgba(30,38,26,0.78) 100%);
+  background:
+    linear-gradient(100deg, rgba(30,38,26,0.72) 0%, rgba(30,38,26,0.42) 60%, rgba(30,38,26,0.30) 100%),
+    linear-gradient(180deg, rgba(30,38,26,0.40) 0%, rgba(30,38,26,0.15) 45%, rgba(30,38,26,0.65) 100%);
 }
 .hero-content {
   position: relative; z-index: 2; color: var(--sand);
