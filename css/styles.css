@@ -266,23 +266,24 @@ html:not([data-hero-variant]) .hero-copy-b { display: block; } /* no-JS fallback
 .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 24px; }
 .path { border-radius: var(--radius-lg); padding: 34px 32px; }
 .path.wait { background: #fff; border: 1px solid var(--line); }
-.path.rsvp { background: var(--ivy); color: var(--sand); }
+.path.dark { background: var(--ivy); color: var(--sand); }
 .path .badge {
   font-family: var(--font-sans); display: inline-block; font-size: 11px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.12em;
   padding: 5px 12px; border-radius: var(--radius-pill); margin-bottom: 16px;
 }
 .path.wait .badge { background: var(--sand); color: var(--ivy); }
-.path.rsvp .badge { background: var(--mustard); color: var(--ivy); }
+.path.dark .badge { background: var(--mustard); color: var(--ivy); }
 .path h3 { font-size: 24px; margin-bottom: 10px; }
-.path.rsvp h3 { color: var(--sand); }
+.path.dark h3 { color: var(--sand); }
 .path .oneline { font-family: var(--font-sans); font-size: 15px; line-height: 1.5; margin-bottom: 20px; }
 .path.wait .oneline { color: var(--ink-soft); }
-.path.rsvp .oneline { color: rgba(232,220,202,0.9); }
+.path.dark .oneline { color: rgba(232,220,202,0.9); }
 .path .meta { font-family: var(--font-sans); font-size: 14px; line-height: 1.9; margin-bottom: 22px; }
 .path .meta b { color: var(--mustard); font-weight: 700; }
 .path .micro { font-family: var(--font-sans); font-size: 12.5px; margin-top: 14px; opacity: 0.75; }
 .path.wait .lead-form { margin-top: 0; }
+.klaviyo-embed { min-height: 56px; margin-bottom: 6px; }
 @media (max-width: 768px) { .paths, .evenif { grid-template-columns: 1fr; } }
 
 /* ── HOMEPAGE: FAQ (simplified — no sidebar) ── */

@@ -16,6 +16,12 @@
     gtag('config', 'G-XXXXXXXXXX', { allow_google_signals: false });
   </script>
   <link rel="icon" type="image/svg+xml" href="assets/crest.svg"/>
+  <!-- Klaviyo onsite tracking + embedded forms -->
+  <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/TFTB5A/klaviyo.js?company_id=TFTB5A'></script>
+  <script type="text/javascript">
+  //Initialize Klaviyo object on page load
+  !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
+  </script>
   <link rel="stylesheet" href="css/tokens.css"/><link rel="stylesheet" href="css/base.css"/><link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
@@ -26,12 +32,12 @@
     <li><a href="different.html">How We're Different</a></li><li><a href="events.html">Events</a></li>
     <li><a href="membership.html">Membership</a></li>
     </ul>
-  <a href="events.html" class="nav-cta">RSVP</a>
+  <a href="index.html#join" class="nav-cta" data-track="tally" data-loc="nav">Apply</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mobile" id="mobile-nav">
   <a href="index.html">Home</a><a href="about.html">About</a><a href="different.html">How We're Different</a>
-  <a href="events.html">Events</a><a href="membership.html">Membership</a><a href="events.html" style="color:var(--mustard)">RSVP →</a>
+  <a href="events.html">Events</a><a href="membership.html">Membership</a><a href="index.html#join" style="color:var(--mustard)">Apply →</a>
 </div>
 
 <div class="page-hero">

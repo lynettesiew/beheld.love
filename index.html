@@ -31,7 +31,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Meet People &amp; Build Real Connections in NYC | BeHeld</title>
-  <meta name="description" content="Curated, activity-based gatherings in NYC for adults who want to build meaningful connections — more than a dinner with strangers. Join the waitlist or RSVP to the next night."/>
+  <meta name="description" content="Curated, activity-based gatherings in NYC for adults who want to build meaningful connections — more than a dinner with strangers. Apply to the waitlist and we'll invite you when we've found your people."/>
   <link rel="canonical" href="https://beheld.love/"/>
   <meta name="robots" content="index, follow"/>
   <meta property="og:type" content="website"/>
@@ -41,6 +41,12 @@
   <meta property="og:image" content="https://beheld.love/assets/og-image.jpg"/><!-- UPDATE: export a real 1200×630 OG image to assets/ -->
   <meta name="twitter:card" content="summary_large_image"/>
   <link rel="icon" type="image/svg+xml" href="assets/crest.svg"/>
+  <!-- Klaviyo onsite tracking + embedded forms -->
+  <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/TFTB5A/klaviyo.js?company_id=TFTB5A'></script>
+  <script type="text/javascript">
+  //Initialize Klaviyo object on page load
+  !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
+  </script>
   <link rel="stylesheet" href="css/tokens.css"/>
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/styles.css"/>
@@ -63,7 +69,7 @@
     <li><a href="events.html">Events</a></li>
     <li><a href="membership.html">Membership</a></li>
     </ul>
-  <a href="events.html" class="nav-cta" data-track="rsvp" data-loc="nav">RSVP</a>
+  <a href="#join" class="nav-cta" data-track="tally" data-loc="nav">Apply</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -74,7 +80,7 @@
   <a href="different.html">How We're Different</a>
   <a href="events.html">Events</a>
   <a href="membership.html">Membership</a>
-  <a href="events.html" style="color:var(--mustard)">RSVP →</a>
+  <a href="#join" style="color:var(--mustard)">Apply →</a>
 </div>
 
 <!-- HERO -->
@@ -104,12 +110,12 @@
       <p class="hero-sub">BeHeld isn't. Activity-based gatherings in NYC where the same faces come back — until strangers aren't strangers.</p>
     </div>
 
-    <form class="lead-form" data-signup-source="homepage_hero" novalidate>
+    <form class="lead-form" data-signup-source="homepage_hero" data-flow="application" novalidate>
       <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
       <button class="btn btn-primary" type="submit">Apply to the waitlist →</button>
     </form>
     <p class="lead-form-msg" hidden></p>
-    <p class="hero-reassure"><a href="#rsvp" data-track="rsvp" data-loc="hero_reassure">Or RSVP to the next gathering</a> — come even if you don't know a soul.</p>
+    <p class="hero-reassure">Not ready to apply? <a href="#newsletter">Get the BeHeld letter</a> — tips and activities for deepening the friendships you already have.</p>
     <div class="hero-ticker">Beyond dating apps · dinner clubs · speed dating</div>
   </div>
 </section>
@@ -132,17 +138,17 @@
       <div class="step-card">
         <div class="step-num">01 · Apply</div>
         <div class="step-title">Tell us who you are</div>
-        <p>A 3-minute application — no swiping required. We seat you with people who actually fit.</p>
+        <p>A 3-minute application — no swiping required. It's how we learn what a good room looks like for you.</p>
       </div>
       <div class="step-card">
-        <div class="step-num">02 · Show up</div>
-        <div class="step-title">Just bring yourself</div>
-        <p>No prep, no persona, no rehearsed fun facts. The activities break the ice for you.</p>
+        <div class="step-num">02 · We curate</div>
+        <div class="step-title">We look for your people</div>
+        <p>No algorithm roulette — a human match. We only move when we've found people you'd actually click with.</p>
       </div>
       <div class="step-card">
-        <div class="step-num">03 · Come back</div>
-        <div class="step-title">Choose who to see again</div>
-        <p>You pick. We put you back in the same room. That's the secret.</p>
+        <div class="step-num">03 · You get the call</div>
+        <div class="step-title">Your room is ready</div>
+        <p>When we've found your people, you're invited. Same faces, again and again — that's the secret.</p>
       </div>
     </div>
   </div>
@@ -169,29 +175,29 @@
     <span class="eyebrow">Two ways in</span>
     <h2 style="text-align:left;">Find your people.</h2>
     <div class="evenif">
-      <div><b>Come even if</b> you don't know anyone in the room.</div>
-      <div><b>Come even if</b> you're hopeless at small talk.</div>
-      <div><b>Come even if</b> you've never done anything like this.</div>
+      <div><b>No spam, just the call.</b> We only email when we've found compatible people for you.</div>
+      <div><b>First in the room.</b> Waitlist members get seats before events open publicly.</div>
+      <div><b>Founding pricing.</b> Early access to membership rates when enrollment opens.</div>
     </div>
     <div class="paths">
       <div id="waitlist" class="path wait">
-        <span class="badge">Waitlist</span>
+        <span class="badge">The waitlist</span>
         <h3>Apply to join</h3>
-        <p class="oneline">Tell us a bit about you. When we spot an event — or a group — that's right for you, we'll reach out with an invite.</p>
-        <form class="lead-form" data-signup-source="join_card" novalidate>
+        <p class="oneline">A short application tells us who you are. Then we go looking — and the moment we've found people you'd actually click with, you get the call.</p>
+        <form class="lead-form" data-signup-source="join_card" data-flow="application" novalidate>
           <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
           <button class="btn btn-outline btn-secondary" type="submit">Start my application →</button>
         </form>
         <p class="lead-form-msg" hidden></p>
-        <p class="micro">One question at a time · ~3 min · No spam — just an invite when the right room comes up.</p>
+        <p class="micro">One question at a time · ~3 min · Nothing lands in your inbox until your room is ready.</p>
       </div>
-      <div id="rsvp" class="path rsvp">
-        <span class="badge">Next gathering</span>
-        <h3>RSVP to the next night</h3>
-        <p class="oneline">A seat is waiting. Come as you are — first-timers welcome.</p>
-        <div class="meta"><b>📅 Saturday, Aug 8</b> · evening<br/><b>📍 NYC · Lower East Side</b><br/><b>🎟️ Limited to 20 people</b> · small on purpose</div>
-        <a class="btn btn-primary" href="https://luma.com/2h9ctlkt" data-track="rsvp" data-loc="join_card">Save my seat · $65 →</a>
-        <p class="micro">Come even if it's your first time. No emergency-exit call needed.</p>
+      <div id="newsletter" class="path dark">
+        <span class="badge">The BeHeld letter</span>
+        <h3>Not ready to apply?</h3>
+        <p class="oneline">Get the letter instead — tips and activities for deepening the friendships you already have, fun stories from the room, and BeHeld news.</p>
+        <!-- Klaviyo embedded form (styled in Klaviyo's form builder) -->
+        <div class="klaviyo-form-XwNMXT klaviyo-embed"></div>
+        <p class="micro">No application. Unsubscribe anytime.</p>
       </div>
     </div>
   </div>
@@ -211,6 +217,10 @@
           <div class="faq-answer"><p>TimeLeft and 222 seat you with strangers for a one-off dinner, then a new group next time. BeHeld is built on continuity: you tell us who you'd like to see again, and we put you back in the same room with them. We also swap forced dinner-table small talk for hands-on activities that reveal character — and we're built for adults in their 30s and 40s, not a 20-something crowd. We don't box it into "friends" or "dating"; you meet people and let the relationship find its own shape.</p></div>
         </details>
         <details>
+          <summary>What happens after I apply?</summary>
+          <div class="faq-answer"><p>We read every application — no bots, no scoring algorithm. Then we go looking for your people: adults whose answers suggest you'd actually click. When we've curated a compatible room, you get an invite with the details. Until then, nothing lands in your inbox. That's the whole point of the waitlist — you wait once, well, instead of showing up to room after room of strangers.</p></div>
+        </details>
+        <details>
           <summary>Is BeHeld for dating or friendship?</summary>
           <div class="faq-answer"><p>Neither, exactly — and that's the point. BeHeld is about meaningful connection in NYC. We don't define it for you: some people find friends, some find a partner, some find community. You meet people who fit, and let the relationship grow at its own pace.</p></div>
         </details>
@@ -220,7 +230,7 @@
         </details>
         <details>
           <summary>Where and when are BeHeld events held?</summary>
-          <div class="faq-answer"><p>Gatherings run in intimate NYC venues — the next one is on the Lower East Side. Seats are limited on purpose, so the room stays small enough to actually get to know people. RSVP to the next night or join the waitlist to get invited.</p></div>
+          <div class="faq-answer"><p>Gatherings run in intimate NYC venues. Seats are limited on purpose, so the room stays small enough to actually get to know people. Join the waitlist and we'll invite you when your room is ready — upcoming dates live on the <a href="events.html" style="color:var(--sage);border-bottom:1px solid var(--line);">Events page</a>.</p></div>
         </details>
         <details>
           <summary>How much does it cost?</summary>
@@ -239,8 +249,8 @@
 <div class="cta-band cta-band--center reveal">
   <h2>There's a difference between being alone and <em>feeling alone.</em></h2>
   <div class="cta-band-right">
-    <a href="#rsvp" class="btn btn-primary" data-track="rsvp" data-loc="closing_band">RSVP to the next night</a>
-    <a href="#waitlist" class="btn btn-ghost">Apply to the waitlist</a>
+    <a href="#waitlist" class="btn btn-primary" data-track="tally" data-loc="closing_band">Apply to the waitlist</a>
+    <a href="#newsletter" class="btn btn-ghost">Get the letter</a>
   </div>
 </div>
 
@@ -293,30 +303,6 @@
   "slogan": "Same room. Same faces. Every few weeks."
 }
 </script>
-<!-- UPDATE per event: keep in sync with the Luma listing -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "BeHeld Gathering — Lower East Side, NYC",
-  "description": "An intimate, activity-based BeHeld gathering for adults in NYC who want to build meaningful connections — wine, conversation cards, and hands-on activities that go deeper than small talk.",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "startDate": "2026-08-08T19:00:00-04:00",
-  "url": "https://luma.com/2h9ctlkt",
-  "location": {
-    "@type": "Place",
-    "name": "Lower East Side venue (address sent on RSVP)",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "New York",
-      "addressRegion": "NY",
-      "addressCountry": "US"
-    }
-  },
-  "organizer": { "@type": "Organization", "name": "BeHeld", "url": "https://beheld.love/" }
-}
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -326,6 +312,11 @@
       "@type": "Question",
       "name": "How is BeHeld different from TimeLeft or 222?",
       "acceptedAnswer": { "@type": "Answer", "text": "TimeLeft and 222 seat you with strangers for a one-off dinner, then a new group next time. BeHeld is built on continuity: you tell us who you'd like to see again, and we put you back in the same room. We swap forced small talk for hands-on activities and are built for adults in their 30s and 40s. We don't box it into friends or dating — you meet people and let the relationship find its own shape." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after I apply?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We read every application, then curate a room of adults whose answers suggest you'd actually click. When we've found compatible people, you get an invite with the details — and nothing lands in your inbox until then." }
     },
     {
       "@type": "Question",
@@ -340,7 +331,7 @@
     {
       "@type": "Question",
       "name": "Where and when are BeHeld events held?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Gatherings run in intimate NYC venues — the next one is on the Lower East Side. Seats are limited, so the room stays small. RSVP to the next night or join the waitlist." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Gatherings run in intimate NYC venues. Seats are limited, so the room stays small. Join the waitlist and we'll invite you when your room is ready — upcoming dates are on the Events page." }
     },
     {
       "@type": "Question",
