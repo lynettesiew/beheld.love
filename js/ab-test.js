@@ -9,8 +9,8 @@
      newsletter_submit. */
 (function () {
   var KLAVIYO_PUBLIC_KEY = 'TFTB5A'; /* Klaviyo public site key (matches the klaviyo.js tag in the page head) */
-  var WAITLIST_LIST_ID = 'WAITLIST_LIST_ID';     /* TODO: Klaviyo list for waitlist-intent emails */
-  var NEWSLETTER_LIST_ID = 'NEWSLETTER_LIST_ID'; /* only used if a custom data-flow="newsletter" form exists; the newsletter card now uses Klaviyo's embedded form XwNMXT instead */
+  var WAITLIST_LIST_ID = 'TSbgvg';               /* Klaviyo "Waitlist" list */
+  var NEWSLETTER_LIST_ID = 'TcMtEG';             /* Klaviyo "Newsletter" list — The BeHeld letter */
   var TALLY_URL = 'https://tally.so/r/MedLGX';
 
   function variant() {
@@ -34,18 +34,6 @@
   if (document.querySelector('.hero-copy-a')) {
     track('hero_variant_exposure');
   }
-
-  /* Klaviyo embedded form (newsletter card) — track submits + attach the
-     A/B variant to the new profile. Klaviyo fires a "klaviyoForms" event
-     for its embedded/popup forms. */
-  window.addEventListener('klaviyoForms', function (e) {
-    if (!e.detail || e.detail.type !== 'submit') return;
-    track('newsletter_submit', { form_location: 'newsletter_card', klaviyo_form: e.detail.formId || '' });
-    try {
-      window.klaviyo = window.klaviyo || [];
-      window.klaviyo.push(['identify', { hero_variant: variant(), signup_flow: 'newsletter' }]);
-    } catch (err) {}
-  });
 
   /* Click tracking for tagged links */
   document.addEventListener('click', function (e) {
@@ -107,9 +95,12 @@
           success.innerHTML = 'You’re in — first letter coming soon.';
         } else {
           track('waitlist_submit', { form_location: source });
-          success.innerHTML = 'You’re on the list. One more step:<br>' +
+          /* Email saved — hand straight off to the Tally application, prefilled.
+             The link stays visible as a fallback if the redirect is interrupted. */
+          success.innerHTML = 'You’re on the list — taking you to the application…<br>' +
             '<a class="btn btn-primary" data-track="tally" data-loc="' + source + '" href="' + tallyUrl(email) +
-            '" target="_blank" rel="noopener">Continue your application →</a>';
+            '">Continue your application →</a>';
+          setTimeout(function () { window.location.href = tallyUrl(email); }, 900);
         }
         if (msg) msg.hidden = true;
         form.replaceWith(success);

@@ -195,8 +195,11 @@
         <span class="badge">The BeHeld letter</span>
         <h3>Not ready to apply?</h3>
         <p class="oneline">Get the letter instead — tips and activities for deepening the friendships you already have, fun stories from the room, and BeHeld news.</p>
-        <!-- Klaviyo embedded form (styled in Klaviyo's form builder) -->
-        <div class="klaviyo-form-XwNMXT klaviyo-embed"></div>
+        <form class="lead-form" data-signup-source="newsletter_card" data-flow="newsletter" novalidate>
+          <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
+          <button class="btn btn-primary" type="submit">Sign me up →</button>
+        </form>
+        <p class="lead-form-msg" hidden></p>
         <p class="micro">No application. Unsubscribe anytime.</p>
       </div>
     </div>
