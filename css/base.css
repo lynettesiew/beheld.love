@@ -5,10 +5,10 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans);
-  background: var(--ivory);
+  background: var(--paper);
   color: var(--ink);
   line-height: 1.6;
-  font-weight: 300;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,33 +24,33 @@ img { max-width: 100%; height: auto; display: block; }
 
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: 10px; font-weight: 500;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--rose);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--sage);
 }
 
 h1 {
   font-family: var(--font-serif);
-  font-size: clamp(48px, 7vw, 92px);
-  font-weight: 300; line-height: 1.0;
-  color: var(--plum); letter-spacing: -1.5px;
+  font-size: clamp(40px, 6vw, 66px);
+  font-weight: 400; line-height: 1.05;
+  color: var(--ivy); letter-spacing: -0.02em;
   margin-bottom: 28px;
 }
-h1 em { font-style: italic; color: var(--rose); }
+h1 em { font-style: italic; color: var(--blush); }
 
 h2 {
   font-family: var(--font-serif);
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 300; line-height: 1.15;
-  color: var(--plum); letter-spacing: -1px;
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 400; line-height: 1.15;
+  color: var(--ivy); letter-spacing: -0.01em;
   margin-bottom: 24px;
 }
-h2 em { font-style: italic; color: var(--rose); }
+h2 em { font-style: italic; color: var(--blush); }
 
 h3 {
   font-family: var(--font-serif);
-  font-size: 22px; font-weight: 400;
-  color: var(--plum); line-height: 1.3;
+  font-size: 21px; font-weight: 400;
+  color: var(--ivy); line-height: 1.3;
 }
 
 p { font-size: 15px; line-height: 1.8; color: var(--ink-soft); }
@@ -66,9 +66,9 @@ p { font-size: 15px; line-height: 1.8; color: var(--ink-soft); }
 /* Eyebrow helpers */
 .section-eyebrow {
   font-family: var(--font-sans);
-  font-size: 10px; font-weight: 500;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--rose); display: block;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--sage); display: block;
   margin-bottom: 20px; text-align: center;
 }
 
@@ -87,14 +87,16 @@ p { font-size: 15px; line-height: 1.8; color: var(--ink-soft); }
   cursor: pointer; transition: all var(--transition-fast);
   border-radius: var(--radius-pill);
 }
-.btn-primary  { background: var(--rose);  color: var(--ivory); border-color: var(--rose); }
-.btn-primary:hover  { background: #AD5232; border-color: #AD5232; transform: translateY(-1px); }
-.btn-secondary { background: transparent; color: var(--plum); border-color: var(--line-strong); }
-.btn-secondary:hover { border-color: var(--plum); }
-.btn-dark     { background: var(--plum);  color: var(--ivory); border-color: var(--plum); }
-.btn-dark:hover     { background: var(--plum-light); }
-.btn-light    { background: var(--ivory); color: var(--plum); border-color: var(--line-strong); }
-.btn-light:hover    { background: var(--ivory-deep); }
+.btn-primary  { background: var(--mustard);  color: var(--ivy); border-color: var(--mustard); }
+.btn-primary:hover  { background: var(--mustard-deep); border-color: var(--mustard-deep); transform: translateY(-1px); }
+.btn-secondary { background: transparent; color: var(--ivy); border-color: var(--line-strong); }
+.btn-secondary:hover { border-color: var(--ivy); }
+.btn-dark     { background: var(--ivy);  color: var(--sand); border-color: var(--ivy); }
+.btn-dark:hover     { background: var(--ivy-light); }
+.btn-light    { background: var(--paper); color: var(--ivy); border-color: var(--line-strong); }
+.btn-light:hover    { background: var(--sand); }
+.btn-ghost    { background: transparent; color: var(--sand); border-color: var(--sand); }
+.btn-ghost:hover    { background: rgba(232,220,202,0.12); }
 
 /* Reveal animation */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.65s ease, transform 0.65s ease; }

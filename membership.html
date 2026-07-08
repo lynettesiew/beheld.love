@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Membership — BeHeld</title>
-  <meta name="description" content="BeHeld membership launches August 2026. Two events included monthly, priority signup, matching that remembers you."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <meta name="description" content="BeHeld membership enrollment opens October 2026. Two events included monthly, priority signup, matching that remembers you."/>
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with the real measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    try {
+      var bhv = localStorage.getItem('bh_hero_variant');
+      if (bhv) gtag('set', 'user_properties', { hero_variant: bhv });
+    } catch (e) {}
+    gtag('config', 'G-XXXXXXXXXX', { allow_google_signals: false });
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/crest.svg"/>
   <link rel="stylesheet" href="css/tokens.css"/><link rel="stylesheet" href="css/base.css"/><link rel="stylesheet" href="css/styles.css"/>
   <style>
     /* Membership savings treatment on the price line */
@@ -16,7 +27,7 @@
       margin-right: 6px;
     }
     .tier-event-price .tier-save {
-      color: var(--rose);
+      color: var(--sage);
       font-family: var(--font-sans);
       font-style: normal;
       font-size: 12px;
@@ -27,7 +38,7 @@
 </head>
 <body>
 <nav class="nav">
-  <a href="index.html" class="logo">Be<em>held</em></a>
+  <a href="index.html" class="logo"><svg class="crest" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 6 L108 20 V60 C108 88 86 106 60 116 C34 106 12 88 12 60 V20 Z" fill="none" stroke="currentColor" stroke-width="6"/><text x="60" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="currentColor" font-style="italic">B</text></svg><span><em>B</em>eHeld</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
     <li><a href="different.html">How We're Different</a></li><li><a href="events.html">Events</a></li>
@@ -38,12 +49,12 @@
 </nav>
 <div class="nav-mobile" id="mobile-nav">
   <a href="index.html">Home</a><a href="about.html">About</a><a href="different.html">How We're Different</a>
-  <a href="events.html">Events</a><a href="membership.html">Membership</a><a href="events.html" style="color:var(--rose)">RSVP →</a>
+  <a href="events.html">Events</a><a href="membership.html">Membership</a><a href="events.html" style="color:var(--mustard)">RSVP →</a>
 </div>
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <span class="eyebrow">Membership · Launching October 2026</span>
+    <span class="eyebrow">Enrollment · Opens October 2026</span>
     <h1>Community doesn't form in one night.<br/><em>It forms in the showing up.</em></h1>
     <p>BeHeld is moving from one-off evenings to a recurring practice — memberships launch in October, with pay-per-event continuing alongside.</p>
   </div>
@@ -53,13 +64,13 @@
 <section class="section">
   <div class="narrow reveal">
     <p style="font-size:16px;line-height:1.8;text-align:center;color:var(--ink);">
-      Three ways to belong — one casual, one committed to the practice, one for depth.
+      Three ways to enroll — one casual, one committed to the practice, one for depth.
     </p>
   </div>
 </section>
 
 <!-- TIER CARDS -->
-<section class="section reveal" style="background:var(--ivory-deep);padding-top:48px;padding-bottom:64px;">
+<section class="section reveal" style="background:var(--sand);padding-top:48px;padding-bottom:64px;">
   <div class="container">
     <div class="tier-grid">
       <div class="tier-card">
@@ -89,7 +100,7 @@
           <li>We remember your matches across events</li>
           <li>Member-only cohort channels</li>
         </ul>
-        <a href="https://tally.so/r/MedLGX" class="btn btn-primary tier-cta" target="_blank" rel="noopener">Join the waitlist</a>
+        <a href="https://tally.so/r/MedLGX" class="btn btn-primary tier-cta" target="_blank" rel="noopener" data-track="tally" data-loc="membership_tier_featured">Join the waitlist</a>
       </div>
 
       <div class="tier-card">
@@ -103,7 +114,7 @@
           <li>1:1 curated introduction included monthly</li>
           <li>1:1 curated follow-up experiences</li>
         </ul>
-        <a href="https://tally.so/r/MedLGX" class="btn btn-secondary tier-cta" target="_blank" rel="noopener">Join the waitlist</a>
+        <a href="https://tally.so/r/MedLGX" class="btn btn-secondary tier-cta" target="_blank" rel="noopener" data-track="tally" data-loc="membership_tier_premium">Join the waitlist</a>
       </div>
     </div>
   </div>
@@ -205,15 +216,15 @@
 </section>
 
 <!-- WAITLIST -->
-<section class="reveal" id="waitlist" style="background:var(--plum);color:var(--ivory);padding:80px var(--container-padding);">
+<section class="reveal" id="waitlist" style="background:var(--ivy);color:var(--sand);padding:80px var(--container-padding);">
   <div class="narrow" style="padding:0;">
-    <span class="eyebrow" style="color:var(--rose-light);display:block;margin-bottom:14px;text-align:center;">Membership · Launching August 2026</span>
-    <h2 style="color:var(--ivory);text-align:center;margin-bottom:18px;">Be among the <em>first members.</em></h2>
-    <p style="text-align:center;color:rgba(247,243,238,0.65);max-width:520px;margin:0 auto 36px;">
+    <span class="eyebrow" style="color:var(--mustard);display:block;margin-bottom:14px;text-align:center;">Enrollment · Opens October 2026</span>
+    <h2 style="color:var(--sand);text-align:center;margin-bottom:18px;">Be among the <em>first members.</em></h2>
+    <p style="text-align:center;color:rgba(232,220,202,0.7);max-width:520px;margin:0 auto 36px;">
       Join the waitlist for first access and founding-member pricing when Membership and Premium launch.
     </p>
     <div class="waitlist-cta-wrap">
-      <a href="https://tally.so/r/MedLGX" class="btn btn-primary waitlist-btn" target="_blank" rel="noopener">Join the waitlist →</a>
+      <a href="https://tally.so/r/MedLGX" class="btn btn-primary waitlist-btn" target="_blank" rel="noopener" data-track="tally" data-loc="membership_waitlist">Join the waitlist →</a>
       <p class="waitlist-note">Takes 2 minutes, with emails only when there's something real to share.</p>
     </div>
   </div>
@@ -264,7 +275,7 @@
 </div>
 
 <footer class="footer">
-  <a href="index.html" class="logo">Be<em>held</em></a>
+  <a href="index.html" class="logo"><svg class="crest" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 6 L108 20 V60 C108 88 86 106 60 116 C34 106 12 88 12 60 V20 Z" fill="none" stroke="currentColor" stroke-width="6"/><text x="60" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="currentColor" font-style="italic">B</text></svg><span><em>B</em>eHeld</span></a>
   <div class="footer-links"><a href="about.html">About</a><a href="different.html">How We're Different</a><a href="events.html">Events</a><a href="membership.html">Membership</a></div>
    <div class="footer-social">
   <a href="https://www.instagram.com/beheldlove" target="_blank" rel="noopener" aria-label="Instagram">
@@ -288,4 +299,5 @@
   <a href="terms.html">Terms &amp; Conditions</a>
 </div>
 <script src="js/main.js"></script>
+<script src="js/ab-test.js"></script>
 </body></html>

@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>How We're Different — BeHeld</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with the real measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    try {
+      var bhv = localStorage.getItem('bh_hero_variant');
+      if (bhv) gtag('set', 'user_properties', { hero_variant: bhv });
+    } catch (e) {}
+    gtag('config', 'G-XXXXXXXXXX', { allow_google_signals: false });
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/crest.svg"/>
   <link rel="stylesheet" href="css/tokens.css"/><link rel="stylesheet" href="css/base.css"/><link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 <nav class="nav">
-  <a href="index.html" class="logo">Be<em>held</em></a>
+  <a href="index.html" class="logo"><svg class="crest" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 6 L108 20 V60 C108 88 86 106 60 116 C34 106 12 88 12 60 V20 Z" fill="none" stroke="currentColor" stroke-width="6"/><text x="60" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="currentColor" font-style="italic">B</text></svg><span><em>B</em>eHeld</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
     <li><a href="different.html" class="active">How We're Different</a></li><li><a href="events.html">Events</a></li>
@@ -20,7 +31,7 @@
 </nav>
 <div class="nav-mobile" id="mobile-nav">
   <a href="index.html">Home</a><a href="about.html">About</a><a href="different.html">How We're Different</a>
-  <a href="events.html">Events</a><a href="membership.html">Membership</a><a href="events.html" style="color:var(--rose)">RSVP →</a>
+  <a href="events.html">Events</a><a href="membership.html">Membership</a><a href="events.html" style="color:var(--mustard)">RSVP →</a>
 </div>
 
 <div class="page-hero">
@@ -81,9 +92,9 @@
 <section class="section overlap-band reveal">
   <div class="container">
     <svg class="overlap-art" width="180" height="110" viewBox="0 0 180 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M90 19 A46 46 0 0 1 90 91 A46 46 0 0 1 90 19 Z" fill="#B08A6E" opacity="0.12"/>
-      <circle cx="68" cy="55" r="46" stroke="#4A2840" stroke-width="1.5"/>
-      <circle cx="112" cy="55" r="46" stroke="#B08A6E" stroke-width="1.5"/>
+      <path d="M90 19 A46 46 0 0 1 90 91 A46 46 0 0 1 90 19 Z" fill="#8A9A5B" opacity="0.12"/>
+      <circle cx="68" cy="55" r="46" stroke="#354230" stroke-width="1.5"/>
+      <circle cx="112" cy="55" r="46" stroke="#8A9A5B" stroke-width="1.5"/>
     </svg>
     <p class="overlap-text">The overlap is the point — not how many people you meet, but how much of you they actually see.</p>
   </div>
@@ -95,7 +106,7 @@
 </div>
 
 <footer class="footer">
-  <a href="index.html" class="logo">Be<em>held</em></a>
+  <a href="index.html" class="logo"><svg class="crest" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 6 L108 20 V60 C108 88 86 106 60 116 C34 106 12 88 12 60 V20 Z" fill="none" stroke="currentColor" stroke-width="6"/><text x="60" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="currentColor" font-style="italic">B</text></svg><span><em>B</em>eHeld</span></a>
   <div class="footer-links"><a href="about.html">About</a><a href="different.html">How We're Different</a><a href="events.html">Events</a><a href="membership.html">Membership</a></div>
    <div class="footer-social">
   <a href="https://www.instagram.com/beheldlove" target="_blank" rel="noopener" aria-label="Instagram">
@@ -119,4 +130,5 @@
   <a href="terms.html">Terms &amp; Conditions</a>
 </div>
 <script src="js/main.js"></script>
+<script src="js/ab-test.js"></script>
 </body></html>

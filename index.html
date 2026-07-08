@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- A/B hero assignment — must run before CSS/paint so the variant shows without flicker -->
+  <script>
+  (function(){
+    var v;
+    try {
+      var q = new URLSearchParams(location.search).get('variant'); /* QA override: ?variant=a|b */
+      v = (q === 'a' || q === 'b') ? q : localStorage.getItem('bh_hero_variant');
+      if (v !== 'a' && v !== 'b') v = Math.random() < 0.5 ? 'a' : 'b';
+      localStorage.setItem('bh_hero_variant', v);
+    } catch (e) { v = 'b'; }
+    document.documentElement.setAttribute('data-hero-variant', v);
+  })();
+  </script>
+
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with the real measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    try {
+      var bhv = localStorage.getItem('bh_hero_variant');
+      if (bhv) gtag('set', 'user_properties', { hero_variant: bhv });
+    } catch (e) {}
+    gtag('config', 'G-XXXXXXXXXX', { allow_google_signals: false });
+  </script>
+
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BeHeld — Find your people, sooner</title>
-  <meta name="description" content="Curated gatherings for NYC professionals in their 30s & 40s. Designed for closeness, not contacts."/>
-  <meta property="og:title" content="BeHeld — Find your people, sooner"/>
-  <meta property="og:description" content="Curated gatherings for NYC professionals in their 30s & 40s. The way connection used to happen."/>
+  <title>Meet People &amp; Build Real Connections in NYC | BeHeld</title>
+  <meta name="description" content="Curated, activity-based gatherings in NYC for adults who want to build meaningful connections — more than a dinner with strangers. Join the waitlist or RSVP to the next night."/>
+  <link rel="canonical" href="https://beheld.love/"/>
+  <meta name="robots" content="index, follow"/>
   <meta property="og:type" content="website"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Meet People &amp; Build Real Connections in NYC | BeHeld"/>
+  <meta property="og:description" content="Activity-based gatherings in NYC for adults who want to build meaningful connections — with the continuity a one-off dinner with strangers can't give you."/>
+  <meta property="og:url" content="https://beheld.love/"/>
+  <meta property="og:image" content="https://beheld.love/assets/og-image.jpg"/><!-- UPDATE: export a real 1200×630 OG image to assets/ -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="icon" type="image/svg+xml" href="assets/crest.svg"/>
   <link rel="stylesheet" href="css/tokens.css"/>
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/styles.css"/>
@@ -19,7 +49,13 @@
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="index.html" class="logo">Be<em>held</em></a>
+  <a href="index.html" class="logo">
+    <svg class="crest" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M60 6 L108 20 V60 C108 88 86 106 60 116 C34 106 12 88 12 60 V20 Z" fill="none" stroke="currentColor" stroke-width="6"/>
+      <text x="60" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="currentColor" font-style="italic">B</text>
+    </svg>
+    <span><em>B</em>eHeld</span>
+  </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -27,7 +63,7 @@
     <li><a href="events.html">Events</a></li>
     <li><a href="membership.html">Membership</a></li>
     </ul>
-  <a href="events.html" class="nav-cta">RSVP</a>
+  <a href="events.html" class="nav-cta" data-track="rsvp" data-loc="nav">RSVP</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -38,104 +74,127 @@
   <a href="different.html">How We're Different</a>
   <a href="events.html">Events</a>
   <a href="membership.html">Membership</a>
-  <a href="events.html" style="color:var(--rose)">RSVP →</a>
+  <a href="events.html" style="color:var(--mustard)">RSVP →</a>
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <h1 style="animation:fadeUp 0.7s 0.18s ease both;opacity:0;">Find your people,<br/><em>sooner.</em></h1>
-    <p class="hero-sub" style="animation:fadeUp 0.7s 0.26s ease both;opacity:0;">
-      The way it used to happen.<br><br>
-      BeHeld brings back the school days version of getting to know someone — through showing up, doing things together, and seeing who someone is over time.
-    </p>
-    <div class="hero-actions" style="animation:fadeUp 0.7s 0.34s ease both;opacity:0;">
-      <a href="events.html" class="btn btn-primary">RSVP for the next evening</a>
-      <a href="different.html" class="btn btn-secondary">How we're different</a>
+<section class="hero" aria-label="Meet people and build real connections in NYC with BeHeld curated gatherings">
+  <div class="hero-media">
+    <!--  ▶ SWAP IN REAL FOOTAGE HERE:
+         <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+           <source src="assets/beheld-activities.mp4" type="video/mp4">
+         </video>
+         Use your raw event clips — friendship bracelets, the rotary phone,
+         the deep-question cards, people laughing. Muted, looping, ~10–15s.
+         Until then, this placeholder collage stands in: -->
+    <div class="hero-placeholder" aria-hidden="true">
+      <div class="hp1">bracelets</div><div class="hp2">wine + tapas</div><div class="hp3">deep-question cards</div><div class="hp4">laughing</div>
+      <div class="hp5">rotary phone</div><div class="hp6">cootie catchers</div><div class="hp7">voice notes</div><div class="hp8">the room</div>
     </div>
   </div>
-  <div class="hero-right">
-    <img src="assets/Hero_image.png" alt="BeHeld gathering"/>
+  <div class="hero-scrim"></div>
+
+  <div class="hero-content">
+    <span class="eyebrow">Curated gatherings · NYC</span>
+
+    <!-- A/B test: variant chosen by the inline script in <head>; CSS shows one block -->
+    <div class="hero-copy hero-copy-a">
+      <h1>Looking for another dinner with strangers? <span class="accent">Keep scrolling.</span></h1>
+      <p class="hero-sub">BeHeld is for adults in NYC who are ready for deeper connections and want to feel seen and be known. Curated, activity-based, and built on coming back.</p>
+    </div>
+    <div class="hero-copy hero-copy-b">
+      <h1>Most “meet people” nights are just <span class="accent">dinner with strangers.</span></h1>
+      <p class="hero-sub">BeHeld isn't. Activity-based gatherings in NYC where the same faces come back — until strangers aren't strangers.</p>
+    </div>
+
+    <form class="lead-form" data-signup-source="homepage_hero" novalidate>
+      <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
+      <button class="btn btn-primary" type="submit">Apply to the waitlist →</button>
+    </form>
+    <p class="lead-form-msg" hidden></p>
+    <p class="hero-reassure"><a href="#rsvp" data-track="rsvp" data-loc="hero_reassure">Or RSVP to the next gathering</a> — come even if you don't know a soul.</p>
+    <div class="hero-ticker">Beyond dating apps · dinner clubs · speed dating</div>
   </div>
 </section>
 
-<!-- LONELINESS STAT BAND -->
-<section class="stat-band reveal">
-  <div class="stat-inner">
-    <p class="stat-quote"><em>Loneliness now carries the same health risk as smoking 15 cigarettes a day.</em></p>
-    <p class="stat-attr">— U.S. Surgeon General</p>
-    <p class="stat-follow">The problem isn't a lack of people, but a lack of depth.</p>
-  </div>
-</section>
-
-<!-- WHAT IT IS -->
-<section class="section reveal">
+<!-- DIFFERENTIATOR -->
+<section class="section diff-band reveal">
   <div class="container">
-    <div class="what-grid">
-      <div>
-        <span class="eyebrow" style="display:block;margin-bottom:18px;">What BeHeld is</span>
-        <h2 style="text-align:left;">A room <em>chosen for you,</em> not assembled by chance.</h2>
-      </div>
-      <div class="what-right">
-        <p style="font-size:16px;">We get to know you before you walk in, so that the room you arrive into has been chosen with you in mind.</p>
-        <p>Then we put you in activities that surface character in ways small talk never can.</p>
-      </div>
-    </div>
+    <span class="eyebrow">Why BeHeld</span>
+    <h2>Not just another<br/><span class="strike">dinner with strangers.</span></h2>
+    <p class="diffsub">BeHeld is a new way to meet people and build real connections as an adult in NYC — activity-based gatherings where something real can grow <span class="accent">the way school used to</span>: same people, again and again. We don't force it into "friends" or "dating." You show up, and let it find its own shape.</p>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section reveal" style="background:var(--ivory-deep);">
+<section class="section reveal" id="how">
   <div class="container">
-    <div style="text-align:center;margin-bottom:44px;">
-      <span class="section-eyebrow">How it works</span>
-      <h2>For people done with<br/><em>superficial relationships.</em></h2>
-    </div>
+    <span class="eyebrow">How it works</span>
+    <h2 style="text-align:left;">Meet your people in three steps.</h2>
     <div class="steps-grid">
       <div class="step-card">
-        <div class="step-num">01</div>
-        <div class="step-title">Before</div>
-        <p style="font-size:13px;">A short application, then a snapshot of your table a few days out.</p>
+        <div class="step-num">01 · Apply</div>
+        <div class="step-title">Tell us who you are</div>
+        <p>A 3-minute application — no swiping required. We seat you with people who actually fit.</p>
       </div>
       <div class="step-card">
-        <div class="step-num">02</div>
-        <div class="step-title">At the event</div>
-        <p style="font-size:13px;">Structured activities that surface character, with less performance and more attention.</p>
+        <div class="step-num">02 · Show up</div>
+        <div class="step-title">Just bring yourself</div>
+        <p>No prep, no persona, no rehearsed fun facts. The activities break the ice for you.</p>
       </div>
       <div class="step-card">
-        <div class="step-num">03</div>
-        <div class="step-title">After</div>
-        <p style="font-size:13px;">Tell us who you'd like to see again, and we'll connect you if it's mutual.</p>
+        <div class="step-num">03 · Come back</div>
+        <div class="step-title">Choose who to see again</div>
+        <p>You pick. We put you back in the same room. That's the secret.</p>
       </div>
-    </div>
-    <div class="steps-footer">
-      <p>Fewer people than a typical event, but known better than months of apps would allow.</p>
     </div>
   </div>
 </section>
 
-<!-- NEXT EVENT -->
-<section class="section reveal">
+<!-- THE NIGHT -->
+<section class="section night-band reveal" id="night">
   <div class="container">
-    <div class="event-teaser">
-      <div class="event-teaser-img">
-        <!-- EVENT IMAGE: 700×500px warm dinner/gathering vibe -->
-        <div class="event-teaser-img">
-          <img src="assets/event_photo_home.png" alt="BeHeld evening"/>
-        </div>
+    <span class="eyebrow">A night at BeHeld</span>
+    <h2 style="text-align:left;">Grown-up recess.</h2>
+    <p class="night-sub">Every BeHeld gathering blends wine, conversation cards, and hands-on activities — so you actually meet people and go deeper than small talk.</p>
+    <div class="chips">
+      <div class="chip"><span class="ic">🍷</span><div class="t">Wine &amp; "tapas" questions</div></div>
+      <div class="chip"><span class="ic">☎️</span><div class="t">Rotary-phone voice notes</div></div>
+      <div class="chip"><span class="ic">🧵</span><div class="t">Friendship bracelets</div></div>
+      <div class="chip"><span class="ic">🔮</span><div class="t">Deep-question cards</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="section reveal" id="join">
+  <div class="container">
+    <span class="eyebrow">Two ways in</span>
+    <h2 style="text-align:left;">Find your people.</h2>
+    <div class="evenif">
+      <div><b>Come even if</b> you don't know anyone in the room.</div>
+      <div><b>Come even if</b> you're hopeless at small talk.</div>
+      <div><b>Come even if</b> you've never done anything like this.</div>
+    </div>
+    <div class="paths">
+      <div id="waitlist" class="path wait">
+        <span class="badge">Waitlist</span>
+        <h3>Apply to join</h3>
+        <p class="oneline">Tell us a bit about you. When we spot an event — or a group — that's right for you, we'll reach out with an invite.</p>
+        <form class="lead-form" data-signup-source="join_card" novalidate>
+          <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
+          <button class="btn btn-outline btn-secondary" type="submit">Start my application →</button>
+        </form>
+        <p class="lead-form-msg" hidden></p>
+        <p class="micro">One question at a time · ~3 min · No spam — just an invite when the right room comes up.</p>
       </div>
-      <div class="event-teaser-body">
-        <span class="eyebrow" style="display:block;">BeHeld Launch</span>
-        <h2>30s &amp; 40s:<br/><em>Find Your People.</em></h2>
-        <p>A small group, structured activities, and one evening that doesn't feel like small talk.</p>
-        <div class="meta-2col">
-          <div class="meta-box"><div class="meta-label">Date</div><div class="meta-val">Sat, Aug 8</div></div>
-          <div class="meta-box"><div class="meta-label">Location</div><div class="meta-val">NYC · LES</div></div>
-        </div>
-        <div class="teaser-row">
-          <a href="events.html" class="btn btn-primary">RSVP · $65</a>
-          <span style="font-size:12px;color:var(--muted);font-style:italic;">Limited to 20 people</span>
-        </div>
+      <div id="rsvp" class="path rsvp">
+        <span class="badge">Next gathering</span>
+        <h3>RSVP to the next night</h3>
+        <p class="oneline">A seat is waiting. Come as you are — first-timers welcome.</p>
+        <div class="meta"><b>📅 Saturday, Aug 8</b> · evening<br/><b>📍 NYC · Lower East Side</b><br/><b>🎟️ Limited to 20 people</b> · small on purpose</div>
+        <a class="btn btn-primary" href="https://luma.com/2h9ctlkt" data-track="rsvp" data-loc="join_card">Save my seat · $65 →</a>
+        <p class="micro">Come even if it's your first time. No emergency-exit call needed.</p>
       </div>
     </div>
   </div>
@@ -145,60 +204,64 @@
 <section class="section faq-section" id="faq">
   <div class="container">
     <div class="faq-header reveal">
-      <span class="eyebrow" style="display:block;margin-bottom:14px;">Common questions</span>
-      <h2>What people<br/><em>usually ask.</em></h2>
+      <span class="eyebrow" style="display:block;margin-bottom:14px;">Good questions</span>
+      <h2>BeHeld <em>FAQ.</em></h2>
     </div>
     <div class="faq-layout-simple reveal">
       <div class="faq-list">
         <details open>
-          <summary>What actually happens at a BeHeld event?</summary>
-          <div class="faq-answer"><p>About two hours in a small, intentional space, moving through structured activities designed to surface character — drawing, storytelling, making, noticing. Less performance, more attention. Stay and mingle after if you'd like.</p></div>
+          <summary>How is BeHeld different from TimeLeft or 222?</summary>
+          <div class="faq-answer"><p>TimeLeft and 222 seat you with strangers for a one-off dinner, then a new group next time. BeHeld is built on continuity: you tell us who you'd like to see again, and we put you back in the same room with them. We also swap forced dinner-table small talk for hands-on activities that reveal character — and we're built for adults in their 30s and 40s, not a 20-something crowd. We don't box it into "friends" or "dating"; you meet people and let the relationship find its own shape.</p></div>
         </details>
         <details>
-          <summary>Is this a dating event?</summary>
-          <div class="faq-answer"><p>Not exactly, and not not. We don't pre-sort by what you're looking for, because your people might be a best friend, a partner, a collaborator, or something without a label yet.</p></div>
+          <summary>Is BeHeld for dating or friendship?</summary>
+          <div class="faq-answer"><p>Neither, exactly — and that's the point. BeHeld is about meaningful connection in NYC. We don't define it for you: some people find friends, some find a partner, some find community. You meet people who fit, and let the relationship grow at its own pace.</p></div>
         </details>
         <details>
-          <summary>How does the matching work?</summary>
-          <div class="faq-answer"><p>A short application before the event shapes who you'll be sitting with, and after the event your next invitation is informed by who you connected with — mutual matches come back, the ones you didn't click with quietly don't.</p></div>
+          <summary>Who comes to BeHeld gatherings?</summary>
+          <div class="faq-answer"><p>Mostly people in their 30s and 40s who are a little tired of dating apps and serious about building meaningful connections as an adult in NYC. Every guest is curated from a short application, so you're seated with people who actually fit.</p></div>
         </details>
         <details>
-          <summary>What if I want to see someone again?</summary>
-          <div class="faq-answer"><p>Tell us at the end of the event, and if they pick you back we'll let you both know — then you choose what happens next, either a direct introduction or a reserved spot at the next event together.</p></div>
+          <summary>Where and when are BeHeld events held?</summary>
+          <div class="faq-answer"><p>Gatherings run in intimate NYC venues — the next one is on the Lower East Side. Seats are limited on purpose, so the room stays small enough to actually get to know people. RSVP to the next night or join the waitlist to get invited.</p></div>
         </details>
         <details>
           <summary>How much does it cost?</summary>
-          <div class="faq-answer"><p>Single events are $65, which covers your seat and matching. Recurring monthly membership and premium tiers are <a href="membership.html" style="color:var(--rose);border-bottom:1px solid rgba(196,96,58,0.3);">launching August 2026</a>.</p></div>
+          <div class="faq-answer"><p>Single events are $65, which covers your seat and matching. Recurring monthly membership and premium tiers are <a href="membership.html" style="color:var(--sage);border-bottom:1px solid var(--line);">opening October 2026</a>.</p></div>
         </details>
         <details>
           <summary>How do you keep the room safe?</summary>
-          <div class="faq-answer"><p>Every participant agrees to <a href="code.html" style="color:var(--rose);border-bottom:1px solid rgba(196,96,58,0.3);">The BeHeld Code</a> — a short agreement about how we treat each other, with serious consequences for anyone whose behavior threatens the trust of the room.</p></div>
+          <div class="faq-answer"><p>Every participant agrees to <a href="code.html" style="color:var(--sage);border-bottom:1px solid var(--line);">The BeHeld Code</a> — a short agreement about how we treat each other, with serious consequences for anyone whose behavior threatens the trust of the room.</p></div>
         </details>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-band reveal">
-  <div>
-    <h2>Ready to be<br/><em>in the room?</em></h2>
-    <p>Come once, see how it feels.</p>
-  </div>
+<!-- CLOSING -->
+<div class="cta-band cta-band--center reveal">
+  <h2>There's a difference between being alone and <em>feeling alone.</em></h2>
   <div class="cta-band-right">
-    <a href="events.html" class="btn btn-primary">RSVP · $65 →</a>
-    <div class="cta-note">Limited to 20 people per event</div>
+    <a href="#rsvp" class="btn btn-primary" data-track="rsvp" data-loc="closing_band">RSVP to the next night</a>
+    <a href="#waitlist" class="btn btn-ghost">Apply to the waitlist</a>
   </div>
 </div>
 
 <footer class="footer">
-  <a href="index.html" class="logo">Be<em>held</em></a>
+  <a href="index.html" class="logo">
+    <svg class="crest" viewBox="0 0 120 120" aria-hidden="true" style="width:22px;height:22px;">
+      <path d="M60 6 L108 20 V60 C108 88 86 106 60 116 C34 106 12 88 12 60 V20 Z" fill="none" stroke="currentColor" stroke-width="6"/>
+      <text x="60" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="currentColor" font-style="italic">B</text>
+    </svg>
+    <span><em>B</em>eHeld</span>
+  </a>
   <div class="footer-links">
     <a href="about.html">About</a>
     <a href="different.html">How We're Different</a>
     <a href="events.html">Events</a>
     <a href="membership.html">Membership</a>
     </div>
+  <span class="footer-note">Same room. Same faces. Every few weeks.</span>
   <div class="footer-social">
   <a href="https://www.instagram.com/beheldlove" target="_blank" rel="noopener" aria-label="Instagram">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -221,6 +284,82 @@
   <a href="terms.html">Terms &amp; Conditions</a>
 </div>
 
+<!-- STRUCTURED DATA (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BeHeld",
+  "url": "https://beheld.love/",
+  "description": "Curated, activity-based gatherings in NYC for adults who want to build meaningful connections.",
+  "areaServed": "New York City",
+  "slogan": "Same room. Same faces. Every few weeks."
+}
+</script>
+<!-- UPDATE per event: keep in sync with the Luma listing -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "BeHeld Gathering — Lower East Side, NYC",
+  "description": "An intimate, activity-based BeHeld gathering for adults in NYC who want to build meaningful connections — wine, conversation cards, and hands-on activities that go deeper than small talk.",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "startDate": "2026-08-08T19:00:00-04:00",
+  "url": "https://luma.com/2h9ctlkt",
+  "location": {
+    "@type": "Place",
+    "name": "Lower East Side venue (address sent on RSVP)",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": { "@type": "Organization", "name": "BeHeld", "url": "https://beheld.love/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is BeHeld different from TimeLeft or 222?",
+      "acceptedAnswer": { "@type": "Answer", "text": "TimeLeft and 222 seat you with strangers for a one-off dinner, then a new group next time. BeHeld is built on continuity: you tell us who you'd like to see again, and we put you back in the same room. We swap forced small talk for hands-on activities and are built for adults in their 30s and 40s. We don't box it into friends or dating — you meet people and let the relationship find its own shape." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BeHeld for dating or friendship?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Neither, exactly. BeHeld is about meaningful connection in NYC — we don't define it for you. Some find friends, some find a partner, some find community; you meet people who fit and let it grow at its own pace." }
+    },
+    {
+      "@type": "Question",
+      "name": "Who comes to BeHeld gatherings?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Mostly people in their 30s and 40s who are tired of dating apps and serious about building meaningful connections as an adult in NYC. Every guest is curated from a short application." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where and when are BeHeld events held?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Gatherings run in intimate NYC venues — the next one is on the Lower East Side. Seats are limited, so the room stays small. RSVP to the next night or join the waitlist." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Single events are $65, which covers your seat and matching. Recurring monthly membership and premium tiers open October 2026." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you keep the room safe?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every participant agrees to The BeHeld Code — a short agreement about how we treat each other, with serious consequences for anyone whose behavior threatens the trust of the room." }
+    }
+  ]
+}
+</script>
+
 <script src="js/main.js"></script>
+<script src="js/ab-test.js"></script>
 </body>
 </html>

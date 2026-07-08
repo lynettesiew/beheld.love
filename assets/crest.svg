@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-label="BeHeld monogram">
+  <!-- shield -->
+  <path d="M60 6 L108 20 V60 C108 88 86 106 60 116 C34 106 12 88 12 60 V20 Z"
+        fill="none" stroke="#354230" stroke-width="3"/>
+  <!-- inner keyline -->
+  <path d="M60 15 L100 26 V60 C100 83 82 99 60 108 C38 99 20 83 20 60 V26 Z"
+        fill="#354230"/>
+  <!-- monogram B -->
+  <text x="60" y="72" text-anchor="middle" font-family="Georgia,serif"
+        font-size="46" fill="#E8DCCA" font-style="italic">B</text>
+  <!-- ivy sprig -->
+  <path d="M60 108 C56 100 56 94 60 90 C64 94 64 100 60 108 Z" fill="#8A9A5B"/>
+  <circle cx="52" cy="97" r="3.4" fill="#8A9A5B"/>
+  <circle cx="68" cy="97" r="3.4" fill="#8A9A5B"/>
+</svg>
