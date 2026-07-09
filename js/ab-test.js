@@ -84,10 +84,10 @@
       '<div class="bh-modal" role="dialog" aria-modal="true" aria-labelledby="bh-modal-title">' +
         '<button class="bh-modal-close" type="button" aria-label="Close">&times;</button>' +
         '<h3 id="bh-modal-title">You’re on the list ✓</h3>' +
-        '<p>One more step: the application. It’s how we learn your preferences and what you’re looking for — so the room you walk into is one we matched with you in mind. It opens on Tally, our form partner.</p>' +
+        '<p>Complete your application to help us match you to your people.</p>' +
         '<div class="bh-modal-actions">' +
-          '<a class="btn btn-primary" data-track="tally" data-loc="' + source + '_modal" href="' + tallyUrl(email) + '">OK — take me there →</a>' +
-          '<button class="btn btn-secondary bh-modal-letter" type="button">Not now — send me the BeHeld letter instead</button>' +
+          '<a class="btn btn-primary" data-track="tally" data-loc="' + source + '_modal" href="' + tallyUrl(email) + '">Start my application →</a>' +
+          '<button class="btn btn-secondary bh-modal-letter" type="button">Put me on the newsletter</button>' +
         '</div>' +
       '</div>';
     document.body.appendChild(overlay);
