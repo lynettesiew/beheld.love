@@ -96,11 +96,16 @@
         } else {
           track('waitlist_submit', { form_location: source });
           /* Email saved — hand straight off to the Tally application, prefilled.
-             The link stays visible as a fallback if the redirect is interrupted. */
-          success.innerHTML = 'You’re on the list — taking you to the application…<br>' +
+             The fallback button stays hidden unless the redirect doesn't happen
+             (blocked or slow), so users aren't asked to click mid-redirect. */
+          success.innerHTML = 'You’re on the list ✓ Taking you to our application form on Tally…<br>' +
             '<a class="btn btn-primary" data-track="tally" data-loc="' + source + '" href="' + tallyUrl(email) +
-            '">Continue your application →</a>';
+            '" hidden>Continue your application →</a>';
           setTimeout(function () { window.location.href = tallyUrl(email); }, 1600);
+          setTimeout(function () {
+            var fallback = success.querySelector('a');
+            if (fallback) fallback.hidden = false;
+          }, 4500);
         }
         if (msg) msg.hidden = true;
         form.replaceWith(success);
