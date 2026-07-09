@@ -100,7 +100,7 @@
           success.innerHTML = 'You’re on the list — taking you to the application…<br>' +
             '<a class="btn btn-primary" data-track="tally" data-loc="' + source + '" href="' + tallyUrl(email) +
             '">Continue your application →</a>';
-          setTimeout(function () { window.location.href = tallyUrl(email); }, 900);
+          setTimeout(function () { window.location.href = tallyUrl(email); }, 1600);
         }
         if (msg) msg.hidden = true;
         form.replaceWith(success);
