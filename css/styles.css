@@ -283,7 +283,31 @@ html:not([data-hero-variant]) .hero-copy-b { display: block; } /* no-JS fallback
 .path .meta b { color: var(--mustard); font-weight: 700; }
 .path .micro { font-family: var(--font-sans); font-size: 12.5px; margin-top: 14px; opacity: 0.75; }
 .path.wait .lead-form { margin-top: 0; }
-.klaviyo-embed { min-height: 56px; margin-bottom: 6px; }
+.lead-success a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── POST-SIGNUP CONFIRMATION DIALOG ── */
+.bh-modal-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(43,53,39,0.65);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.bh-modal {
+  background: var(--paper); border-radius: var(--radius-lg);
+  padding: 36px 32px 32px; max-width: 460px; width: 100%;
+  position: relative; box-shadow: 0 20px 60px rgba(28,20,16,0.35);
+}
+.bh-modal h3 { margin-bottom: 10px; font-size: 24px; }
+.bh-modal p { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 24px; }
+.bh-modal-actions { display: flex; flex-direction: column; gap: 10px; }
+.bh-modal-actions .btn { text-align: center; }
+.bh-modal-close {
+  position: absolute; top: 10px; right: 16px;
+  background: none; border: none; font-size: 26px; line-height: 1;
+  color: var(--muted); cursor: pointer; padding: 4px;
+  transition: color var(--transition-fast);
+}
+.bh-modal-close:hover { color: var(--ivy); }
 @media (max-width: 768px) { .paths, .evenif { grid-template-columns: 1fr; } }
 
 /* ── HOMEPAGE: FAQ (simplified — no sidebar) ── */
