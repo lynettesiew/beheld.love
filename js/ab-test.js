@@ -111,7 +111,7 @@
         modal.innerHTML =
           '<button class="bh-modal-close" type="button" aria-label="Close">&times;</button>' +
           '<h3>You’re in ✓</h3>' +
-          '<p>The first letter is coming soon. And if you change your mind, you can apply anytime from this page.</p>' +
+          '<p>Check your inbox or spam for the good stuff.</p>' +
           '<div class="bh-modal-actions"><button class="btn btn-secondary bh-modal-done" type="button">Close</button></div>';
         modal.querySelector('.bh-modal-close').addEventListener('click', close);
         modal.querySelector('.bh-modal-done').addEventListener('click', close);
