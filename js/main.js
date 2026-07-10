@@ -67,6 +67,44 @@
     }, 2400);
   }
 
+  /* Testimonial cards (homepage): hover = muted preview, click = exclusive
+     sound-on playback. Only one card plays with sound at a time. */
+  var testimonialCards = document.querySelectorAll('.testimonial-card');
+  if (testimonialCards.length) {
+    var testimonialTracked = {};
+    var stopTestimonial = function (card) {
+      var v = card.querySelector('video');
+      v.pause();
+      v.muted = true;
+      card.classList.remove('is-sound');
+    };
+    testimonialCards.forEach(function (card) {
+      var v = card.querySelector('video');
+      card.addEventListener('pointerenter', function (e) {
+        if (e.pointerType !== 'mouse' || card.classList.contains('is-sound')) return;
+        v.muted = true;
+        v.play().catch(function () {});
+      });
+      card.addEventListener('pointerleave', function (e) {
+        if (e.pointerType !== 'mouse' || card.classList.contains('is-sound')) return;
+        v.pause();
+      });
+      card.addEventListener('click', function () {
+        if (card.classList.contains('is-sound')) { stopTestimonial(card); return; }
+        testimonialCards.forEach(function (other) { if (other !== card) stopTestimonial(other); });
+        v.currentTime = 0;
+        v.muted = false;
+        card.classList.add('is-sound');
+        v.play().catch(function () {});
+        var clip = card.getAttribute('data-clip') || '';
+        if (!testimonialTracked[clip] && typeof gtag === 'function') {
+          testimonialTracked[clip] = true;
+          gtag('event', 'testimonial_play', { clip: clip });
+        }
+      });
+    });
+  }
+
   /* Smooth scroll for anchor links */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
