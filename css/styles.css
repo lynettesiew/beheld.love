@@ -173,8 +173,11 @@
 }
 .hero-content {
   position: relative; z-index: 2; color: var(--sand);
-  max-width: var(--container-max); margin: 0 auto; width: 100%;
-  padding: 80px var(--container-padding) 104px;
+  width: 100%;
+  padding: 80px var(--container-padding) 96px;
+}
+@media (max-width: 768px) {
+  .hero-content { padding-bottom: 72px; }
 }
 /* Headline never wraps: fluid size keeps "Not another speed-dating event."
    on one line; below 600px it breaks into two FIXED lines instead. */
