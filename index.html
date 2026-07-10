@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- A/B hero assignment — must run before CSS/paint so the variant shows without flicker -->
-  <script>
-  (function(){
-    var v;
-    try {
-      var q = new URLSearchParams(location.search).get('variant'); /* QA override: ?variant=a|b */
-      v = (q === 'a' || q === 'b') ? q : localStorage.getItem('bh_hero_variant');
-      if (v !== 'a' && v !== 'b') v = Math.random() < 0.5 ? 'a' : 'b';
-      localStorage.setItem('bh_hero_variant', v);
-    } catch (e) { v = 'b'; }
-    document.documentElement.setAttribute('data-hero-variant', v);
-  })();
-  </script>
-
   <!-- Google Analytics 4 — replace G-XXXXXXXXXX with the real measurement ID -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
@@ -86,37 +72,21 @@
 <!-- HERO -->
 <section class="hero" aria-label="Meet people and build real connections in NYC with BeHeld curated gatherings">
   <div class="hero-media">
-    <!--  ▶ SWAP IN REAL FOOTAGE LATER:
-         <video autoplay muted loop playsinline poster="assets/hero-poster.jpg">
-           <source src="assets/beheld-activities.mp4" type="video/mp4">
-         </video>
-         Use your raw event clips — friendship bracelets, the rotary phone,
-         the deep-question cards, people laughing. Muted, looping, ~10–15s.
-         Until then, a real event photo stands in: -->
-    <img src="assets/event_photo_home.png" alt="" aria-hidden="true"/>
+    <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" preload="metadata">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="hero-scrim"></div>
 
   <div class="hero-content">
-    <span class="eyebrow">Curated gatherings · NYC</span>
-
-    <!-- A/B test: variant chosen by the inline script in <head>; CSS shows one block -->
-    <div class="hero-copy hero-copy-a">
-      <h1>Looking for another dinner with strangers? <span class="accent">Keep scrolling.</span></h1>
-      <p class="hero-sub">BeHeld is for adults in NYC who are ready for deeper connections and want to feel seen and be known. Curated, activity-based, and built on coming back.</p>
-    </div>
-    <div class="hero-copy hero-copy-b">
-      <h1>Most “meet people” nights are just <span class="accent">dinner with strangers.</span></h1>
-      <p class="hero-sub">BeHeld isn't. Activity-based gatherings in NYC where the same faces come back — until strangers aren't strangers.</p>
-    </div>
+    <h1 aria-label="Not another networking, dinner, speed-dating, or social event.">Not another<br class="hero-h1-br"/> <span class="rotate-line" aria-hidden="true"><span class="rotate-slot"><span class="rotate-word accent">networking</span></span> event.</span></h1>
+    <p class="hero-sub hero-sub--serif">Come to be known.</p>
 
     <form class="lead-form" data-signup-source="homepage_hero" data-flow="application" novalidate>
       <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
       <button class="btn btn-primary" type="submit">Apply to the waitlist →</button>
     </form>
     <p class="lead-form-msg" hidden></p>
-    <p class="hero-reassure">Not ready to apply? <a href="#newsletter">Get the BeHeld letter</a> — tips and activities for deepening the friendships you already have.</p>
-    <div class="hero-ticker">Beyond dating apps · dinner clubs · speed dating</div>
   </div>
 </section>
 

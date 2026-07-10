@@ -36,6 +36,42 @@
     });
   });
 
+  /* Hero background video: respect reduced-motion (poster only), otherwise
+     nudge playback for browsers that ignore the autoplay attribute. */
+  var heroVideo = document.querySelector('.hero-media video');
+  if (heroVideo) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      heroVideo.removeAttribute('autoplay');
+      heroVideo.pause();
+    } else if (heroVideo.paused) {
+      heroVideo.play().catch(function () {});
+    }
+  }
+
+  /* Hero rotating headline word (homepage only). The slot's width animates
+     to each word so the text after it glides instead of jumping. */
+  var rotateWord = document.querySelector('.rotate-word');
+  var rotateSlot = document.querySelector('.rotate-slot');
+  if (rotateWord && rotateSlot &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var words = ['networking', 'dinner', 'speed-dating', 'social'];
+    var wordIndex = 0;
+    var fitSlot = function () { rotateSlot.style.width = rotateWord.offsetWidth + 'px'; };
+    fitSlot();
+    window.addEventListener('resize', fitSlot);
+    setInterval(function () {
+      rotateWord.style.opacity = '0';
+      rotateWord.style.transform = 'translateY(0.25em)';
+      setTimeout(function () {
+        wordIndex = (wordIndex + 1) % words.length;
+        rotateWord.textContent = words[wordIndex];
+        rotateSlot.style.width = rotateWord.offsetWidth + 'px';
+        rotateWord.style.opacity = '1';
+        rotateWord.style.transform = 'translateY(0)';
+      }, 300);
+    }, 2400);
+  }
+
   /* Smooth scroll for anchor links */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {

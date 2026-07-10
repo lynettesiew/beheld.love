@@ -1,6 +1,5 @@
-/* BeHeld — hero A/B test measurement + Klaviyo signup forms.
-   Variant assignment happens in the inline script in index.html <head>;
-   this file only reads it, so it is safe to load on every page.
+/* BeHeld — Klaviyo signup forms + GA click tracking.
+   (The hero A/B test this file was named for ended 2026-07-10.)
 
    Two form flows, chosen by the form's data-flow attribute:
    - "application": waitlist intent — Klaviyo capture, then a confirmation
@@ -15,16 +14,9 @@
   var NEWSLETTER_LIST_ID = 'TcMtEG'; /* Klaviyo "Newsletter" list — The BeHeld letter */
   var TALLY_URL = 'https://tally.so/r/MedLGX';
 
-  function variant() {
-    try { return localStorage.getItem('bh_hero_variant') || ''; } catch (e) { return ''; }
-  }
-
   function track(name, params) {
     if (typeof gtag !== 'function') return;
-    params = params || {};
-    var v = variant();
-    if (v) params.hero_variant = v;
-    gtag('event', name, params);
+    gtag('event', name, params || {});
   }
 
   /* Tally URL-prefill: query key must match the form's email field — verify in Tally */
@@ -46,7 +38,7 @@
                 type: 'profile',
                 attributes: {
                   email: email,
-                  properties: { hero_variant: variant(), signup_source: source, signup_flow: flow }
+                  properties: { signup_source: source, signup_flow: flow }
                 }
               }
             }
@@ -57,11 +49,6 @@
     }).then(function (res) {
       if (!res.ok) throw new Error('subscribe failed: ' + res.status);
     });
-  }
-
-  /* Exposure — fires only where the A/B hero exists (homepage) */
-  if (document.querySelector('.hero-copy-a')) {
-    track('hero_variant_exposure');
   }
 
   /* Click tracking for tagged links */

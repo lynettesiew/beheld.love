@@ -158,7 +158,7 @@
 .img-ph .ph-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 .img-ph .ph-size  { font-family: var(--font-serif); font-size: 14px; font-style: italic; color: var(--line-strong); }
 
-/* ── HOMEPAGE: HERO (full-bleed media + A/B copy) ── */
+/* ── HOMEPAGE: HERO (full-bleed video + rotating headline) ── */
 .hero {
   position: relative; min-height: 92vh; padding-top: 64px;
   display: flex; align-items: center; overflow: hidden;
@@ -176,28 +176,38 @@
   max-width: var(--container-max); margin: 0 auto; width: 100%;
   padding: 80px var(--container-padding);
 }
-.hero-content .eyebrow { color: var(--mustard); display: block; margin-bottom: 24px; }
-.hero-content h1 { color: var(--sand); max-width: 19ch; margin-bottom: 0; }
-.hero-content h1 .accent { font-style: italic; color: var(--blush); }
-.hero-content .hero-sub {
-  font-size: 18px; line-height: 1.6; margin-top: 20px;
-  color: rgba(232,220,202,0.92); max-width: 44ch;
+/* Headline never wraps: fluid size keeps "Not another speed-dating event."
+   on one line; below 600px it breaks into two FIXED lines instead. */
+.hero-content h1 {
+  color: var(--sand); margin-bottom: 0;
+  white-space: nowrap;
+  font-size: clamp(20px, calc((100vw - 64px) / 15.4), 58px);
 }
-/* A/B variant gating — assignment script in index.html <head> sets data-hero-variant */
-.hero-copy-a, .hero-copy-b { display: none; }
-[data-hero-variant="a"] .hero-copy-a { display: block; }
-[data-hero-variant="b"] .hero-copy-b { display: block; }
-html:not([data-hero-variant]) .hero-copy-b { display: block; } /* no-JS fallback */
-
-.hero-reassure { font-family: var(--font-sans); font-size: 13.5px; color: rgba(232,220,202,0.9); margin-top: 16px; }
-.hero-reassure a { color: var(--sand); text-decoration: underline; text-underline-offset: 3px; }
-.hero-ticker {
-  font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--sage); margin-top: 40px;
+.hero-content h1 .accent { font-style: italic; color: var(--blush); }
+.hero-h1-br { display: none; }
+.rotate-line { white-space: nowrap; }
+.rotate-slot {
+  display: inline-block; overflow: hidden; vertical-align: bottom;
+  transition: width 0.4s ease;
+}
+.rotate-word {
+  display: inline-block; white-space: nowrap;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.hero-sub--serif {
+  font-family: var(--font-serif); font-style: italic;
+  font-size: clamp(19px, 2.2vw, 23px); line-height: 1.5;
+  color: rgba(232,220,202,0.95); margin-top: 16px;
+}
+@media (max-width: 600px) {
+  .hero-content h1 {
+    white-space: normal; line-height: 1.15;
+    font-size: clamp(26px, calc((100vw - 64px) / 9.8), 40px);
+  }
+  .hero-h1-br { display: inline; }
 }
 @media (max-width: 768px) {
   .hero { min-height: 88vh; }
-  .hero-placeholder { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(4,1fr); }
 }
 
 /* Lead form (hero + join card) */
