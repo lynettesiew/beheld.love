@@ -160,7 +160,8 @@
 
 /* ── HOMEPAGE: HERO (full-bleed video + rotating headline) ── */
 .hero {
-  position: relative; min-height: 92vh; padding-top: 64px;
+  position: relative; padding-top: 64px;
+  min-height: 100vh; min-height: 100svh; /* fills the first screen on all devices; svh tracks mobile browser chrome */
   display: flex; align-items: flex-end; overflow: hidden;
 }
 .hero-media { position: absolute; inset: 0; z-index: 0; background: var(--ivy-deep); }
@@ -210,7 +211,7 @@
   .hero-h1-br { display: inline; }
 }
 @media (max-width: 768px) {
-  .hero { min-height: 88vh; }
+  .hero { min-height: 100vh; min-height: 100svh; }
 }
 
 /* Lead form (hero + join card) */
