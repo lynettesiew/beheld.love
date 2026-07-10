@@ -48,8 +48,7 @@
      to each word so the text after it glides instead of jumping. */
   var rotateWord = document.querySelector('.rotate-word');
   var rotateSlot = document.querySelector('.rotate-slot');
-  if (rotateWord && rotateSlot &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (rotateWord && rotateSlot) {
     var words = ['networking', 'dinner', 'speed-dating', 'social'];
     var wordIndex = 0;
     var fitSlot = function () { rotateSlot.style.width = rotateWord.offsetWidth + 'px'; };
