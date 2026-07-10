@@ -36,16 +36,12 @@
     });
   });
 
-  /* Hero background video: respect reduced-motion (poster only), otherwise
-     nudge playback for browsers that ignore the autoplay attribute. */
+  /* Hero background video: ambient footage plays for everyone; the nudge
+     covers browsers that ignore the autoplay attribute. (The rotating
+     headline below still goes static under prefers-reduced-motion.) */
   var heroVideo = document.querySelector('.hero-media video');
-  if (heroVideo) {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      heroVideo.removeAttribute('autoplay');
-      heroVideo.pause();
-    } else if (heroVideo.paused) {
-      heroVideo.play().catch(function () {});
-    }
+  if (heroVideo && heroVideo.paused) {
+    heroVideo.play().catch(function () {});
   }
 
   /* Hero rotating headline word (homepage only). The slot's width animates
