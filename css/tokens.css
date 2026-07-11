@@ -14,7 +14,8 @@
   --sage: #8A9A5B;         /* structural accent: eyebrows, markers, labels */
 
   /* Color — accents (~20%, human moments only) */
-  --blush: #E2A79A;        /* vulnerability: emotional italics, pullquotes */
+  --blush: #E2A79A;        /* vulnerability: emotional italics, pullquotes (dark bg) */
+  --clay: #B4614A;         /* blush's role on LIGHT backgrounds (pale blush lacks contrast there) */
   --mustard: #E1AD01;      /* fun: RSVP/CTA buttons, badges */
   --mustard-deep: #C79A01; /* CTA hover */
 
