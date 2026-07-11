@@ -229,7 +229,7 @@
 .lead-success .btn { margin-top: 14px; }
 
 /* ── HOMEPAGE: FILTER BAND (the loud, provocative beat) ── */
-.filter-band { background: var(--ivy-deep); text-align: center; }
+.filter-band { background: #333D2E; text-align: center; } /* one-off warmer dark green, per Lynette */
 .filter-band .eyebrow { color: var(--mustard); display: block; margin-bottom: 18px; }
 .filter-band h2 {
   color: var(--sand); font-size: clamp(30px, 4vw, 46px);
