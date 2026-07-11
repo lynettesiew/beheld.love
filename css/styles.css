@@ -259,38 +259,41 @@
   font-family: var(--font-sans); font-size: 16px; line-height: 1.6;
   max-width: 46ch; margin: 14px 0 0; color: var(--ink-soft);
 }
-/* Activity carousel — one uncropped 16:9 clip at a time, arrows + caption.
-   (Deliberately calm next to the click-to-play testimonial grid below.) */
+/* Activity carousel — full-width clip and ivy caption bar in one rounded
+   frame ("cinema" stage + "editorial" text panel). Nothing overlays footage. */
 .recess-carousel { margin-top: 36px; }
+.recess-frame { border-radius: var(--radius-lg); overflow: hidden; }
 .recess-stage {
-  position: relative; aspect-ratio: 16 / 9;
-  border-radius: var(--radius-lg); overflow: hidden; background: var(--ivy-deep);
+  position: relative; aspect-ratio: 16 / 9; background: var(--ivy-deep);
 }
 .recess-slide { margin: 0; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; pointer-events: none; }
 .recess-slide.is-active { opacity: 1; pointer-events: auto; }
 .recess-slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.recess-prev, .recess-next {
-  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
-  width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer;
-  background: rgba(232,220,202,0.9); color: var(--ivy);
-  font-size: 20px; line-height: 1; display: flex; align-items: center; justify-content: center;
-  transition: background var(--transition-fast);
-}
-.recess-prev { left: 14px; }
-.recess-next { right: 14px; }
-.recess-prev:hover, .recess-next:hover { background: var(--sand); }
 .recess-caption {
-  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
-  margin-top: 14px;
+  background: var(--ivy);
+  padding: 16px 22px;
+  display: flex; align-items: center; gap: 18px;
 }
-.recess-name { font-family: var(--font-serif); font-size: 17px; color: var(--ivy); }
-.recess-desc { font-family: var(--font-sans); font-size: 14px; color: var(--ink-soft); }
-.recess-count {
-  margin-left: auto; font-family: var(--font-sans); font-size: 11px;
-  letter-spacing: 0.12em; color: var(--sage); white-space: nowrap;
+.recess-text { flex: 1; min-width: 0; }
+.recess-num {
+  font-family: var(--font-sans); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--mustard);
+  margin-bottom: 4px;
 }
+.recess-name { font-family: var(--font-serif); font-size: 18px; color: var(--sand); }
+.recess-desc { font-family: var(--font-sans); font-size: 13px; color: rgba(232,220,202,0.85); margin-left: 10px; }
+.recess-arrows { display: flex; gap: 8px; flex-shrink: 0; }
+.recess-prev, .recess-next {
+  width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+  font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.recess-prev { background: none; border: 1px solid rgba(232,220,202,0.5); color: var(--sand); }
+.recess-prev:hover { border-color: var(--sand); }
+.recess-next { background: var(--mustard); border: none; color: var(--ivy); }
+.recess-next:hover { background: var(--mustard-deep); }
 @media (max-width: 600px) {
-  .recess-count { margin-left: 0; width: 100%; }
+  .recess-desc { display: block; margin-left: 0; margin-top: 2px; }
 }
 
 /* ── HOMEPAGE: TESTIMONIALS ── */

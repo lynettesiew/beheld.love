@@ -75,7 +75,7 @@
     var recessSlides = recessStage.querySelectorAll('.recess-slide');
     var recessName = document.querySelector('.recess-name');
     var recessDesc = document.querySelector('.recess-desc');
-    var recessCount = document.querySelector('.recess-count');
+    var recessNum = document.querySelector('.recess-num');
     var recessActive = 0;
     var recessOnScreen = false;
     var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
@@ -95,7 +95,7 @@
       var active = recessSlides[recessActive];
       recessName.textContent = active.getAttribute('data-name');
       recessDesc.textContent = active.getAttribute('data-desc');
-      recessCount.textContent = pad(recessActive + 1) + ' / ' + pad(recessSlides.length);
+      recessNum.textContent = 'Activity ' + pad(recessActive + 1) + ' · of ' + pad(recessSlides.length);
     };
 
     document.querySelector('.recess-prev').addEventListener('click', function () { showRecess(recessActive - 1); });
