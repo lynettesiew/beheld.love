@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://beheld.love/sitemap.xml
+Sitemap: https://www.beheld.love/sitemap.xml
