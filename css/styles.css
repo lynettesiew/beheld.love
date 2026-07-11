@@ -287,35 +287,37 @@
 .report-card {
   background: #fff; border: 1px solid var(--line);
   border-radius: var(--radius-lg); overflow: hidden;
-  max-width: 640px; margin-top: 36px;
+  margin-top: 40px;
 }
 .report-head {
-  padding: 14px 24px; border-bottom: 2px solid var(--ivy);
+  padding: 14px 26px; border-bottom: 2px solid var(--ivy);
   display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
 }
 .report-title { font-family: var(--font-serif); font-size: 17px; color: var(--ivy); }
 .report-student { font-family: var(--font-serif); font-style: italic; font-size: 13px; color: var(--muted); }
-.report-row {
-  padding: 18px 24px; display: flex; gap: 16px; align-items: center;
-  border-bottom: 0.5px solid var(--line);
+.report-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.report-col { padding: 26px 26px 30px; border-right: 0.5px solid var(--line); }
+.report-col:last-child { border-right: none; }
+.report-col-top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 14px;
 }
-.report-row:last-child { border-bottom: none; }
-.report-num { font-family: var(--font-serif); font-size: 24px; color: var(--clay); width: 36px; flex-shrink: 0; }
-.report-body { flex: 1; min-width: 0; }
-.report-step { font-family: var(--font-serif); font-size: 16px; color: var(--ivy); line-height: 1.35; }
-.report-body p { font-family: var(--font-sans); font-size: 13px; line-height: 1.55; color: var(--ink-soft); margin-top: 3px; }
+.report-num { font-family: var(--font-serif); font-size: 28px; color: var(--clay); }
+.report-step { font-family: var(--font-serif); font-size: 17px; color: var(--ivy); line-height: 1.35; }
+.report-col p { font-family: var(--font-sans); font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin-top: 5px; }
 .report-stamp {
   font-family: var(--font-sans); font-size: 9px; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
   border: 1.5px solid; border-radius: 3px; padding: 4px 9px;
   flex-shrink: 0; white-space: nowrap;
 }
-.report-stamp--received { color: var(--sage); border-color: var(--sage); transform: rotate(-6deg); }
+.report-stamp--received { color: var(--sage); border-color: var(--sage); transform: rotate(-5deg); }
 .report-stamp--session  { color: var(--clay); border-color: var(--clay); transform: rotate(4deg); }
 .report-stamp--enrolled { color: var(--mustard-deep); border-color: var(--mustard); transform: rotate(-3deg); }
-@media (max-width: 600px) {
-  .report-row { flex-wrap: wrap; }
-  .report-stamp { margin-left: 52px; }
+@media (max-width: 768px) {
+  .report-grid { grid-template-columns: 1fr; }
+  .report-col { border-right: none; border-bottom: 0.5px solid var(--line); }
+  .report-col:last-child { border-bottom: none; }
 }
 
 /* ── HOMEPAGE: GROWN-UP RECESS (activity chips) ── */
