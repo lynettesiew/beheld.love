@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Events — BeHeld</title>
-  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with the real measurement ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <title>Upcoming Meaningful Connection Events in NYC | BeHeld</title>
+  <meta name="description" content="Explore upcoming BeHeld gatherings in NYC: small, curated events with thoughtful activities designed to move beyond small talk and build connection."/>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7E61XHDM6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    try {
-      var bhv = localStorage.getItem('bh_hero_variant');
-      if (bhv) gtag('set', 'user_properties', { hero_variant: bhv });
-    } catch (e) {}
-    gtag('config', 'G-XXXXXXXXXX', { allow_google_signals: false });
+    gtag('config', 'G-H7E61XHDM6', { allow_google_signals: false });
   </script>
   <link rel="icon" type="image/svg+xml" href="assets/crest.svg"/>
+  <link rel="canonical" href="https://beheld.love/events.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Upcoming Meaningful Connection Events in NYC | BeHeld"/>
+  <meta property="og:description" content="Explore upcoming BeHeld gatherings in NYC: small, curated events with thoughtful activities designed to move beyond small talk and build connection."/>
+  <meta property="og:url" content="https://beheld.love/events.html"/>
+  <meta property="og:image" content="https://beheld.love/assets/og-image.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <!-- Klaviyo onsite tracking + embedded forms -->
   <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/TFTB5A/klaviyo.js?company_id=TFTB5A'></script>
   <script type="text/javascript">
@@ -47,6 +51,21 @@
     <p>Curated gatherings designed for closeness, not contacts — rooms built intentionally, from who's in them to what you do together.</p>
   </div>
 </div>
+
+<!-- Add Event JSON-LD only when the event is publicly listed
+     and date, venue, price, availability, and URL are confirmed.
+     Check first whether Luma already feeds Google Events. -->
+
+<!-- WHAT BEHELD IS (evergreen, crawlable) -->
+<section class="section reveal" style="padding-bottom:0;">
+  <div class="narrow">
+    <h2 style="text-align:left;font-size:clamp(24px,2.8vw,34px);">Come as a stranger. <em>Leave having been noticed.</em></h2>
+    <p style="margin-bottom:14px;">BeHeld creates small, thoughtfully structured gatherings in New York City for people who want more than another evening of polite conversation. Each event uses playful prompts, collaborative games, and guided activities to help people move beyond "What do you do?" and discover how others think, listen, contribute, and show up.</p>
+    <p style="margin-bottom:14px;">A typical gathering begins with an easy way into the room, followed by activities that gradually create more depth. Our signature Made for You experience invites participants to use what they have noticed to create something for another person, turning attention into a keepsake.</p>
+    <p style="margin-bottom:14px;">BeHeld is for people seeking meaningful friendships and relationships who are also willing to make the effort those connections require. Attendance is intentionally limited so the room can feel personal, participatory, and cared for.</p>
+    <p>Browse upcoming gatherings below and apply for the event that feels right for you.</p>
+  </div>
+</section>
 
 <!-- LUMA EMBED -->
 <section class="section" id="rsvp">
@@ -94,7 +113,7 @@
 
 <div class="cta-band reveal">
   <div><h2>Expect to be a little<br/><em>uncomfortable,</em> in the best way.</h2><p>Fewer people than a typical event, known better than months of apps would allow.</p></div>
-  <div class="cta-band-right"><a href="#rsvp" class="btn btn-primary">See upcoming events →</a><div class="cta-note">$65 · Limited to 20 people</div></div>
+  <div class="cta-band-right"><a href="#rsvp" class="btn btn-primary">See upcoming events →</a></div>
 </div>
 
 <footer class="footer">
