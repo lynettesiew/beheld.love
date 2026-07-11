@@ -67,6 +67,19 @@
     }, 2400);
   }
 
+  /* Recess filmstrip (homepage): each clip loops silently while on screen
+     and pauses off screen. No controls, no sound. */
+  var recessVideos = document.querySelectorAll('.recess-card video');
+  if (recessVideos.length) {
+    var recessObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) entry.target.play().catch(function () {});
+        else entry.target.pause();
+      });
+    }, { threshold: 0.25 });
+    recessVideos.forEach(function (v) { recessObs.observe(v); });
+  }
+
   /* Testimonial cards (homepage): hover = muted preview, click = exclusive
      sound-on playback. Only one card plays with sound at a time. */
   var testimonialCards = document.querySelectorAll('.testimonial-card');
