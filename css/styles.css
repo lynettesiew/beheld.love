@@ -259,19 +259,39 @@
   font-family: var(--font-sans); font-size: 16px; line-height: 1.6;
   max-width: 46ch; margin: 14px 0 0; color: var(--ink-soft);
 }
-/* Activity filmstrip — chrome-free autoplaying loops (contrast with the
-   click-to-play testimonial cards: no borders, no buttons, labels below) */
-.recess-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 36px; }
-.recess-card { margin: 0; }
-.recess-card video {
-  width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block;
-  border-radius: var(--radius-lg); background: var(--sand);
+/* Activity carousel — one uncropped 16:9 clip at a time, arrows + caption.
+   (Deliberately calm next to the click-to-play testimonial grid below.) */
+.recess-carousel { margin-top: 36px; }
+.recess-stage {
+  position: relative; aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg); overflow: hidden; background: var(--ivy-deep);
 }
-.recess-card figcaption {
-  font-family: var(--font-serif); font-size: 15px; color: var(--ivy);
-  text-align: center; margin-top: 10px;
+.recess-slide { margin: 0; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; pointer-events: none; }
+.recess-slide.is-active { opacity: 1; pointer-events: auto; }
+.recess-slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.recess-prev, .recess-next {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(232,220,202,0.9); color: var(--ivy);
+  font-size: 20px; line-height: 1; display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition-fast);
 }
-@media (max-width: 768px) { .recess-grid { grid-template-columns: repeat(2,1fr); gap: 12px; } }
+.recess-prev { left: 14px; }
+.recess-next { right: 14px; }
+.recess-prev:hover, .recess-next:hover { background: var(--sand); }
+.recess-caption {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  margin-top: 14px;
+}
+.recess-name { font-family: var(--font-serif); font-size: 17px; color: var(--ivy); }
+.recess-desc { font-family: var(--font-sans); font-size: 14px; color: var(--ink-soft); }
+.recess-count {
+  margin-left: auto; font-family: var(--font-sans); font-size: 11px;
+  letter-spacing: 0.12em; color: var(--sage); white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .recess-count { margin-left: 0; width: 100%; }
+}
 
 /* ── HOMEPAGE: TESTIMONIALS ── */
 .testimonial-band { background: var(--ivy); }

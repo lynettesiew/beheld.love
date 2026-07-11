@@ -67,17 +67,60 @@
     }, 2400);
   }
 
-  /* Recess filmstrip (homepage): each clip loops silently while on screen
-     and pauses off screen. No controls, no sound. */
-  var recessVideos = document.querySelectorAll('.recess-card video');
-  if (recessVideos.length) {
-    var recessObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) entry.target.play().catch(function () {});
-        else entry.target.pause();
+  /* Recess carousel (homepage): one uncropped clip at a time, muted loop.
+     Arrows/swipe navigate; only the active slide's video plays; the whole
+     stage pauses when scrolled off screen. */
+  var recessStage = document.querySelector('.recess-stage');
+  if (recessStage) {
+    var recessSlides = recessStage.querySelectorAll('.recess-slide');
+    var recessName = document.querySelector('.recess-name');
+    var recessDesc = document.querySelector('.recess-desc');
+    var recessCount = document.querySelector('.recess-count');
+    var recessActive = 0;
+    var recessOnScreen = false;
+    var pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+
+    var showRecess = function (i) {
+      recessActive = (i + recessSlides.length) % recessSlides.length;
+      recessSlides.forEach(function (slide, n) {
+        var v = slide.querySelector('video');
+        if (n === recessActive) {
+          slide.classList.add('is-active');
+          if (recessOnScreen) v.play().catch(function () {});
+        } else {
+          slide.classList.remove('is-active');
+          v.pause();
+        }
       });
-    }, { threshold: 0.25 });
-    recessVideos.forEach(function (v) { recessObs.observe(v); });
+      var active = recessSlides[recessActive];
+      recessName.textContent = active.getAttribute('data-name');
+      recessDesc.textContent = active.getAttribute('data-desc');
+      recessCount.textContent = pad(recessActive + 1) + ' / ' + pad(recessSlides.length);
+    };
+
+    document.querySelector('.recess-prev').addEventListener('click', function () { showRecess(recessActive - 1); });
+    document.querySelector('.recess-next').addEventListener('click', function () { showRecess(recessActive + 1); });
+
+    var swipeX = null;
+    recessStage.addEventListener('pointerdown', function (e) { swipeX = e.clientX; });
+    recessStage.addEventListener('pointerup', function (e) {
+      if (swipeX === null) return;
+      var dx = e.clientX - swipeX;
+      swipeX = null;
+      if (dx > 40) showRecess(recessActive - 1);
+      else if (dx < -40) showRecess(recessActive + 1);
+    });
+
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        recessOnScreen = entry.isIntersecting;
+        var v = recessSlides[recessActive].querySelector('video');
+        if (recessOnScreen) v.play().catch(function () {});
+        else v.pause();
+      });
+    }, { threshold: 0.25 }).observe(recessStage);
+
+    showRecess(0);
   }
 
   /* Testimonial cards (homepage): hover = muted preview, click = exclusive
