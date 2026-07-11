@@ -236,36 +236,22 @@
 <!-- JOIN -->
 <section class="section reveal" id="join">
   <div class="container">
-    <span class="eyebrow">Two ways in</span>
-    <h2 style="text-align:left;">Find your people.</h2>
-    <div class="evenif">
-      <div><b>No spam, just the call.</b> We only email when we've found compatible people for you.</div>
-      <div><b>First in the room.</b> Waitlist members get seats before events open publicly.</div>
-      <div><b>Founding pricing.</b> Early access to membership rates when enrollment opens.</div>
-    </div>
-    <div class="paths">
-      <div id="waitlist" class="path wait">
-        <span class="badge">The waitlist</span>
-        <h3>Apply to join</h3>
-        <p class="oneline">A short application tells us who you are. Then we go looking — and the moment we've found people you'd actually click with, you get the call.</p>
-        <form class="lead-form" data-signup-source="join_card" data-flow="application" novalidate>
-          <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
-          <button class="btn btn-outline btn-secondary" type="submit">Start my application →</button>
-        </form>
-        <p class="lead-form-msg" hidden></p>
-        <p class="micro">One question at a time · Your answers shape who you meet · Nothing lands in your inbox until your room is ready.</p>
-      </div>
-      <div id="newsletter" class="path dark">
-        <span class="badge">The BeHeld letter</span>
-        <h3>Not ready to apply?</h3>
-        <p class="oneline">Get the letter instead — tips and activities for deepening the friendships you already have, fun stories from the room, and BeHeld news.</p>
-        <form class="lead-form" data-signup-source="newsletter_card" data-flow="newsletter" novalidate>
-          <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
-          <button class="btn btn-primary" type="submit">Sign me up →</button>
-        </form>
-        <p class="lead-form-msg" hidden></p>
-        <p class="micro">No application. Unsubscribe anytime.</p>
-      </div>
+    <span class="eyebrow" style="display:block;text-align:center;">Find your people</span>
+    <h2 style="text-align:center;">Apply to join.</h2>
+    <div class="letter-card" id="waitlist">
+      <svg class="letter-crest" viewBox="0 0 120 120" aria-hidden="true">
+        <path d="M60 6 L108 20 V60 C108 88 86 106 60 116 C34 106 12 88 12 60 V20 Z" fill="var(--ivy)"/>
+        <text x="60" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="52" fill="#E8DCCA" font-style="italic">B</text>
+      </svg>
+      <p class="letter-salutation">Dear future member,</p>
+      <p class="letter-body">A short application tells us who you are. Then we go looking — and the moment we've found people you'd actually click with, you get the call.</p>
+      <p class="letter-aside">No spam — just an email when the next event's ready for you. First in the room: applicants get seats before events open publicly. And showing up matters here — we're building this for people who come back.</p>
+      <form class="lead-form" data-signup-source="join_card" data-flow="application" novalidate>
+        <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
+        <button class="btn btn-primary" type="submit">Start my application →</button>
+      </form>
+      <p class="lead-form-msg" hidden></p>
+      <p class="letter-signature">— Lynette, founder</p>
     </div>
   </div>
 </section>
@@ -316,8 +302,7 @@
 <div class="cta-band cta-band--center reveal">
   <h2>There's a difference between being alone and <em>feeling alone.</em></h2>
   <div class="cta-band-right">
-    <a href="#waitlist" class="btn btn-primary" data-track="tally" data-loc="closing_band">Apply to the waitlist</a>
-    <a href="#newsletter" class="btn btn-ghost">Get the letter</a>
+    <a href="#waitlist" class="btn btn-primary" data-track="tally" data-loc="closing_band">Apply to join</a>
   </div>
 </div>
 
