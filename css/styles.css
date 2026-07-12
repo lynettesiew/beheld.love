@@ -242,6 +242,64 @@
   max-width: 44ch; margin: 18px auto 0; color: var(--ink-soft);
 }
 
+/* Attendance register exhibit — the roll book that proves "our structure
+   rewards people who show up" (design: Lynette's register-simple mockup) */
+.roll-key { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 38px auto 22px; }
+.roll-key-item {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--ink-soft);
+  background: #fff; border: 1px solid var(--line); border-radius: 100px; padding: 6px 15px 6px 7px;
+}
+.roll-key-item b { color: var(--ivy); font-weight: 700; }
+.roll-mark {
+  width: 28px; height: 28px; flex: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+}
+.roll-mark--up { background: radial-gradient(circle at 50% 40%, #fff6df, #f3e6c2); }
+.roll-mark--absent { background: #faf0ec; color: var(--clay); font-family: var(--font-serif); font-weight: 700; font-size: 14px; }
+.roll-mark--madeup { background: #e4ead2; color: var(--ivy); font-size: 14px; }
+.roll-star { color: var(--mustard); filter: drop-shadow(0 1px 1px rgba(199, 154, 1, 0.5)); }
+.roll-card {
+  background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(53, 66, 48, 0.09); max-width: 760px; margin: 0 auto;
+}
+.roll-head { background: var(--ivy); color: #fff; display: flex; justify-content: space-between; align-items: baseline; padding: 13px 22px; }
+.roll-title { font-family: var(--font-serif); font-size: 16px; }
+.roll-student { font-family: var(--font-serif); font-style: italic; font-size: 13px; color: var(--sand); }
+.roll-table { width: 100%; border-collapse: collapse; }
+.roll-table thead th {
+  font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; color: var(--muted);
+  padding: 13px 4px 11px; border-bottom: 2px solid var(--ivy);
+}
+.roll-table tbody td { padding: 20px 4px 26px; text-align: center; }
+.roll-cell {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%; position: relative;
+}
+.roll-cell--up { background: radial-gradient(circle at 50% 40%, #fff8e6, #f6ebcb); }
+.roll-cell--up .roll-star { font-size: 27px; }
+.roll-tilt1 .roll-star { transform: rotate(-7deg); }
+.roll-tilt2 .roll-star { transform: rotate(6deg); }
+.roll-cell--absent { background: #faf0ec; color: var(--clay); font-family: var(--font-serif); font-weight: 700; font-size: 21px; }
+.roll-cell--madeup { background: #e4ead2; color: var(--ivy); font-family: var(--font-serif); font-weight: 700; font-size: 16px; }
+.roll-cap {
+  position: absolute; bottom: -19px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-sans); font-size: 8.5px; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;
+}
+.roll-cap--miss { color: var(--clay); }
+.roll-cap--made { color: var(--sage); }
+.roll-foot { background: #FBF7EF; border-top: 2px solid var(--line); padding: 17px 22px; }
+.roll-line { font-family: var(--font-serif); font-style: italic; font-size: 14.5px; color: var(--ivy); }
+.roll-line b { font-style: normal; font-weight: 700; color: var(--mustard-deep); }
+.roll-sub { font-family: var(--font-sans); font-size: 12px; color: var(--muted); margin-top: 4px; }
+@media (max-width: 820px) {
+  .roll-cell { width: 36px; height: 36px; }
+  .roll-cell--up .roll-star { font-size: 22px; }
+  .roll-cell--absent { font-size: 18px; }
+  .roll-table tbody td { padding: 16px 2px 24px; }
+}
+
 /* ── HOMEPAGE: WHY BEHELD (the quiet, explanatory beat) ── */
 .why-band { background: var(--sand); padding: 72px 0; }
 .why-grid {
